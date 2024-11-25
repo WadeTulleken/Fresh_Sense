@@ -1,0 +1,32 @@
+﻿@model Fresh_Sense.Models.Schedule_MaintenanceVisit
+
+@{
+    Layout = "_Layout"; // Use your layout
+}
+
+<h2>Reschedule Maintenance Visit</h2>
+
+<form method="post" asp-action="Reschedule">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <div class="form-group">
+        <label asp-for="Date" class="control-label">New Date</label>
+        <input asp-for="Date" type="date" class="form-control" />
+        <span asp-validation-for="Date" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Time" class="control-label">New Time</label>
+        <input asp-for="Time" type="time" class="form-control" />
+        <span asp-validation-for="Time" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Notes" class="control-label">Additional Notes</label>
+        <textarea asp-for="Notes" class="form-control"></textarea>
+        <span asp-validation-for="Notes" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Reschedule</button>
+    <a class="btn btn-secondary" href="@Url.Action("Index", "ViewAppointments")">Cancel</a>
+</form>

@@ -1,0 +1,46 @@
+﻿@model IEnumerable<Fresh_Sense.Areas.Identity.ApplicationUser>
+
+@{
+    Layout = "_View";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maintenance Fault</title>
+    <link rel="stylesheet" href="~/css/FridgeServices.css">
+</head>
+<body>
+
+
+    <div class="fault-table">
+        <h2>View Customer Fridge History</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Customer Name</th>
+                    
+                    
+                   
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var Customer in Model)
+                {
+                    <tr>
+                        <td>@Customer.FirstName @Customer.LastName</td>
+                        
+                        
+                        <td><a asp-action="Edit" asp-route-id="@Customer.Id" class="btn btn-primary">View </a></td>
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+    </div>
+
+    <button type="button" class="back-btn" onclick="window.location.href='@Url.Action("Index", "View")'">Back</button>
+
+</body>
+</html>

@@ -1,0 +1,44 @@
+﻿@{
+    Layout = "_Purchasing";
+}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FreshSense Dashboard</title>
+    <link rel="stylesheet" href="@Url.Content("~/css/MaintenanceLandingPage.css")">
+</head>
+<body>
+
+    <main>
+        <section class="dashboard">
+            <div class="card">
+                <div class="icon">
+                    <img src="@Url.Content("~/css/Purchase.jpg")" alt="Purchase Icon">
+
+                </div>
+                <h3>Manage Suppliers</h3>
+                <a class="select-btn" asp-controller= "Supplier" asp-action="Index">Select</a>
+            </div>
+            <div class="card">
+                <div class="icon">
+                    <img src="@Url.Content("~/css/QuotationRequest.jpg")" alt="Quotation Icon">
+                </div>
+                <h3>Requests & Quotation</h3>
+                <a type="button" class="buttons" asp-controller= "PurchaseRequest" asp-action="Index">Select</a>
+            </div>
+            <div class="card">
+                <div class="icon">
+                    <img src="@Url.Content("~/css/DeliveryNote.jpg")" alt="Delivery Note Icon">
+                </div>
+                <h3>Process Delivery Note</h3>
+                <a class="select-btn" asp-controller="ProcessDeliveryNote" asp-action="Index">Select</a>
+            </div>
+        </section>
+    </main>
+
+</body>
+</html>

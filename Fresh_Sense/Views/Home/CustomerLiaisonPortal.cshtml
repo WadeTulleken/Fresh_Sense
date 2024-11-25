@@ -1,0 +1,89 @@
+﻿@{
+    Layout = "_Maintenance";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FreshSense Dashboard</title>
+    <link rel="stylesheet" href="~/css/FaultPortal.css">
+    <link rel="stylesheet" href="~/css/loader.css">
+
+</head>
+
+<body>
+
+
+    <div id="loader" class="loader"></div>
+    <div class="container">
+        <div class="main-content">
+            <h1>Customer Liaison Portal</h1>
+            <div class="cards">
+                
+                <div class="card">
+                    <img src="~/css/view-fault-status.jpg" alt="Manage Customers Icon" />
+                    <h3>Manage Customers</h3>
+                    <br />
+                    <br />
+                    <br />
+                    <a type="button" class="buttons" asp-controller="ManageCustomer" asp-action="Index">Select</a>
+                </div>
+                <div class="card">
+                    <img src="~/css/request-new-fridge.jpg" alt="Create Fridge Allocations Icon" />
+                    <h3>Create Fridge Allocations</h3>
+                    <br />
+                    <br />
+                    <a type="button" class="buttons" asp-controller="FridgeAllocation" asp-action="Create">Select</a>
+         
+                </div>
+                <div class="card">
+                    <img src="~/css/request-new-fridge.jpg" alt="Create Fridge Allocations Icon" />
+                    <h3>Fridge Requests</h3>
+                    <br />
+                    <br />
+                    <br />
+                    <a type="button" class="buttons" asp-controller="FridgeRequest" asp-action="Index">Select</a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="~/js/loader.js"></script>
+    <script>
+                    // loader.js
+        document.addEventListener("DOMContentLoaded", () => {
+            const loader = document.getElementById("loader");
+
+            function showLoader() {
+                loader.style.display = "block";
+            }
+
+            function hideLoader() {
+                loader.style.display = "none";
+            }
+
+            // Attach event listeners to all buttons
+            const buttons = document.querySelectorAll(".buttons");
+            buttons.forEach(button => {
+                button.addEventListener("click", (event) => {
+                    event.preventDefault(); // Prevent the default action
+
+                    showLoader();
+
+                    // Simulate a delay to show the loader (remove this in production)
+                    setTimeout(() => {
+                        // Navigate to the new page
+                        window.location.href = button.getAttribute("href");
+                    }, 2000);
+                });
+            });
+        });
+
+    </script>
+
+
+
+</body>
+</html>

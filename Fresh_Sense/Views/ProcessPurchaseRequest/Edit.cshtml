@@ -1,0 +1,51 @@
+﻿@model Fresh_Sense.Models.ProcessPurchaseRequest
+
+@{
+    Layout = "_Purchasing";
+}
+
+<div class="container">
+    <h2 class="text-center mb-4">Process Purchase Request</h2>
+    <form asp-action="Edit" method="post" class="purchase-request-edit-form">
+        @Html.AntiForgeryToken()
+
+        <input type="hidden" asp-for="RequestId" /> <!-- Hidden field for RequestId -->
+        <input type="hidden" asp-for="SupplierId" /> <!-- Keep the SupplierId hidden -->
+        <input type="hidden" asp-for="PRFridgeRequested" /> <!-- Keep fridge requested hidden -->
+
+        <div class="form-group">
+            <label class="form-label">Supplier Name:</label>
+            <input type="text" class="form-control"
+                   value="@Model.Supplier?.SupplierName " Unknown"" readonly />
+        </div>
+
+        <div class="form-group">
+            <label class="form-label">Fridge Requested:</label>
+            <input type="text" class="form-control"
+                   value="@Model.PRFridgeRequested" readonly />
+        </div>
+
+        <div class="form-group">
+            <label for="RequestStatus" class="form-label">Change Status</label>
+            <select asp-for="RequestStatus" class="form-control">
+                <option value="Approved"
+                        selected="@((Model.RequestStatus == "Approved") ? "selected" : null)">Approved</option>
+                <option value="Pending"
+                        selected="@((Model.RequestStatus == "Pending") ? "selected" : null)">Pending</option>
+                <option value="Denied"
+                        selected="@((Model.RequestStatus == "Denied") ? "selected" : null)">Denied</option>
+            </select>
+            <span asp-validation-for="RequestStatus" class="text-danger"></span>
+        </div>
+
+        <div class="text-center mt-4">
+            <button type="submit" class="btn btn-primary">Save Changes</button>
+            <a class="cancel btn btn-secondary"
+               href="@Url.Action("Index", "ProcessPurchaseRequest")">Cancel</a>
+        </div>
+    </form>
+
+    @section Scripts {
+        @await Html.PartialAsync("_ValidationScriptsPartial")
+    }
+</div>

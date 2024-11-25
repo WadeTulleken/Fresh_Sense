@@ -1,0 +1,207 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    background: url('background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #d9eaf7;
+}
+
+main {
+    padding: 40px;
+    flex: 1;
+}
+
+.dashboard {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    padding: 40px;
+}
+
+.card {
+    background-color: #0a74da;
+    color: white;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    width: 300px;
+    height: 400px;
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    opacity: 0; /* Initially invisible */
+    transform: translateY(50px); /* Start below */
+    animation: fadeInUp 1s ease forwards; /* Animate entrance */
+}
+
+    .card img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 10px;
+    }
+
+    .card h3 {
+        margin: 20px 0;
+        font-size: 1.8rem;
+        word-wrap: break-word; /* Ensure text wraps properly */
+    }
+
+/* Adjusting margin above the button */
+.select-btn, .buttons {
+    padding: 15px 30px; /* Make button bigger */
+    background-color: #0073e6;
+    border: none;
+    color: white;
+    border-radius: 50px; /* Rounded button */
+    cursor: pointer;
+    position: absolute;
+    bottom: 20px; /* Move the button towards the bottom */
+    left: 50%;
+    transform: translateX(-50%);
+    transition: all 0.3s ease-in-out;
+    font-size: 1.2rem; /* Larger, more presentable font */
+    font-weight: bold; /* Bold button text */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    letter-spacing: 0.5px;
+    width: 80%; /* Set width */
+    text-align: center;
+}
+
+/* Ensure margin between content and button */
+.card-content {
+    margin-bottom: 40px; /* Space between text and button */
+}
+
+.select-btn:hover, .buttons:hover {
+    background-color: hotpink; /* Hot pink button on hover */
+    transform: translateX(-50%) scale(1.1); /* Enlarges button slightly */
+    box-shadow: 0 10px 20px rgba(255, 105, 180, 0.4); /* Glow effect */
+}
+
+/* Animation delay for each card */
+.dashboard > .card:nth-child(1) {
+    animation-delay: 0.2s;
+}
+
+.dashboard > .card:nth-child(2) {
+    animation-delay: 0.4s;
+}
+
+.dashboard > .card:nth-child(3) {
+    animation-delay: 0.6s;
+}
+
+/* Hover effect for the card */
+.card:hover {
+    transform: scale(1.05); /* Enlarges slightly on hover */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    background-color: pink; /* Changes background to pink on hover */
+}
+
+.heading {
+    background-color: darkcyan;
+}
+
+.logo img {
+    height: 50px;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    background-color: steelblue;
+    padding: 1rem;
+}
+
+footer {
+    font-size: 1.4rem;
+    background-color: steelblue;
+    text-align: center;
+    padding: 2rem;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+    color: #fafafa;
+    position: relative;
+    width: 100%;
+}
+
+    footer a {
+        color: #e3e3e3;
+        text-decoration: none;
+    }
+
+/********FOR LOGIN PARTIAL*********/
+.user-container {
+    display: flex;
+    align-items: center;
+}
+
+    .user-container img {
+        width: 30px;
+        height: 30px;
+    }
+
+.user-details {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+}
+
+.user-role {
+    font-size: 15px;
+    color: #ccc;
+}
+
+.logout-btn {
+    margin-top: 10px;
+}
+
+/* Slide and Fade-in Animation */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(50px); /* Start from below */
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0); /* End at original position */
+    }
+}
+
+.back-btn {
+    position: fixed;
+    top: 100px; /* Adjust to move it down from the header */
+    right: 20px; /* Position it on the right side */
+    background-color: #ff6347; /* Tomato color */
+    color: white;
+    padding: 12px 25px; /* Rectangle shape with slightly larger padding */
+    border: none;
+    border-radius: 5px; /* Make it a rectangle by using a small radius */
+    font-size: 1.2rem;
+    cursor: pointer;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for scale and shadow */
+}
+
+    .back-btn:hover {
+        transform: scale(1.1); /* Slightly enlarge button on hover */
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Enhance shadow to make it pop */
+    }
+

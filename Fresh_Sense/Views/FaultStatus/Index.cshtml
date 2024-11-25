@@ -1,0 +1,35 @@
+﻿@{
+    Layout = "_FaultStatus";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Fault Status</title>
+    <link rel="stylesheet" href="~/css/FaultStatus.css">
+</head>
+<style>
+    h1 {
+        border-radius: 15px;
+        font-weight: bold;
+    }</style>
+<body>
+    <div class="container">
+       
+        <div class="main-content">
+            <h1>View Fault Status</h1>
+            
+            <form asp-action="Search" method="post">
+                <div class="form-group">
+                    <label for="faultID">Fault ID:</label>
+                    <input type="number" name="id" class="form-control" />
+                </div>
+                <button type="submit" class="btn btn-primary">Search</button>
+            </form>
+        </div>
+    </div>
+    
+</body>
+</html>
+

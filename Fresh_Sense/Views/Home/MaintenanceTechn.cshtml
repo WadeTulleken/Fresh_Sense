@@ -1,0 +1,148 @@
+﻿
+@* <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FreshSense Dashboard</title>
+    <link rel="stylesheet" href="~/css/FaultPortal.css">
+</head>
+<body>
+
+    <div class="container">
+
+        <div class="main-content">
+
+            <div class="cards">
+                <div class="card">
+                    <img src="~/css/Maintenance View.jpg" alt="Report Fault Icon" />
+                    <h3>View</h3>
+                    <br />
+                    <a type="button" class="buttons" asp-controller="FaultReport" asp-action="Index">Select</a>
+
+                </div>
+                <div class="card">
+                    <img src="~/css/Maintenance Visits.png" alt="View Fault Status Icon" />
+                    <h3>Visits</h3>
+                    <br />
+                    <a type="button" class="buttons" asp-controller="FaultStatus" asp-action="Index">Select</a>
+                </div>
+                <div class="card">
+                    <img src="~/css/Maintenance Create Faults.jpg" alt="Request a New Fridge Icon" />
+                    <h3>Create Faults</h3>
+                    <br />
+                    <a type="button" class="buttons" asp-controller="FridgeRequest" asp-action="Index">Select</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
+ *@
+
+@{
+    Layout = "_Maintenance";
+}
+
+
+
+@* <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FreshSense Dashboard</title>
+    <link rel="stylesheet" href="~/css/MaintenanceLandingPage.css">
+</head>
+<body>
+
+    <main>
+        <section class="dashboard">
+            <div class="card">
+                <div class="icon">
+                    <img src="~/css/Maintenance View.jpg" alt="View Icon">
+                </div>
+                <h3>View</h3>
+                <button class="select-btn">Select</button>
+            </div>
+            <div class="card">
+                <div class="icon">
+                    <img src="~/css/Maintenance Visits.png" alt="Visits Icon">
+                </div>
+                <h3>Visits</h3>
+                <button class="select-btn">Select</button>
+            </div>
+            <div class="card">
+                <div class="icon">
+                    <img src="~/css/Maintenance Create Faults.jpg" alt="Create Faults Icon">
+                </div>
+                <h3>Create Faults</h3>
+                <button class="select-btn">Select</button>
+            </div>
+        </section>
+    </main>
+
+  
+</body>
+</html>
+ *@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FreshSense Dashboard</title>
+    <link rel="stylesheet" href="@Url.Content("~/css/MaintenanceLandingPage.css")">
+</head>
+<body>
+
+    <main>
+        <section class="dashboard">
+            <div class="card">
+                <div class="icon">
+                    <img src="@Url.Content("~/css/M View.gif")" alt="View Icon">
+
+                </div>
+                <h3>View</h3>
+                <a type="button" class="buttons" asp-controller="View" asp-action="Index">Select</a>
+            </div>
+            <div class="card">
+                <div class="icon">
+                    <img src="@Url.Content("~/css/Maintenance V.gif")" alt="Visits Icon">
+                    
+                </div>
+                <h3>Visits</h3>
+                <a type="button" class="buttons" asp-controller="Visits" asp-action="Index">Select</a>
+
+            </div>
+            <div class="card">
+                <div class="icon">
+                    <img src="@Url.Content("~/css/Create Faults M..gif")" alt="Create Faults Icon">
+                 </div>
+                <h3>Create Faults</h3>
+                <a type="button" class="buttons" asp-controller="Maintenance_Fault" asp-action="Create">Select</a>
+            </div>
+        </section>
+    </main>
+
+</body>
+</html>
+

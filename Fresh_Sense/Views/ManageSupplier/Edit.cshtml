@@ -1,0 +1,36 @@
+﻿@model Fresh_Sense.Models.Suppliers
+
+@{
+    Layout = "_Purchasing"; 
+}
+
+<div class="container">
+    <h2 class="text-center mb-4">Edit Supplier</h2>
+    <br />
+    <form asp-action="Edit" method="post" class="supplier-edit-form">
+        <input type="hidden" asp-for="SupplierId" />
+
+        <div class="form-group">
+            <label asp-for="SupplierName" class="form-label">Supplier Name:</label>
+            <input asp-for="SupplierName" class="form-control" />
+            <span asp-validation-for="SupplierName" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="SupplierPhoneNo" class="form-label">Phone Number:</label>
+            <input asp-for="SupplierPhoneNo" class="form-control" />
+            <span asp-validation-for="SupplierPhoneNo" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="SupplierEmail" class="form-label">Email:</label>
+            <input asp-for="SupplierEmail" class="form-control" />
+            <span asp-validation-for="SupplierEmail" class="text-danger"></span>
+        </div>
+
+        <div class="text-center mt-4">
+            <button type="submit" class="btn btn-primary">Save Changes</button>
+            <a class="cancel" href="@Url.Action("Index", "Supplier")">Cancel</a>
+        </div>
+    </form>
+</div>

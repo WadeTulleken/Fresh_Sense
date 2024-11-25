@@ -1,0 +1,112 @@
+﻿@page
+@model LoginModel
+
+@{
+    ViewData["Title"] = "Log in";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>FreshSense Landing Page</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/css/loader.css">
+</head>
+<body>
+    <div id="loader" class="loader"></div>
+<!-- Section: Design Block -->
+<section class="">
+    <!-- Jumbotron -->
+    <div class="px-4 py-5 px-md-5 text-center text-lg-start" style="background-color: hsl(0, 0%, 96%)">
+        <div class="container">
+            <div class="row gx-lg-5 align-items-center">
+                <div class="col-lg-6 mb-5 mb-lg-0">
+                    <h1 class="my-5 display-3 fw-bold ls-tight">
+                        The best offer <br />
+                        <span class="text-primary">for your business!</span>
+                    </h1>
+
+                </div>
+
+                <div class="col-lg-6 mb-5 mb-lg-0">
+                    <div class="card">
+                        <div class="card-body py-5 px-md-5">
+                            <form id="account" method="post">
+                                <div class="login-header">
+                                    <img src="~/css/user_icon.png" alt="User Icon">
+                                    <h3>Log-in to Your Account</h3>
+                                </div>
+
+
+                                <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+
+                                <div @* data-mdb-input-init *@ class="form-outline mb-4">
+                                        <label asp-for="Input.Email" class="form-label"><span class="required">*</span>Email:</label>
+                                    <input asp-for="Input.Email" class="form-control" autocomplete="username" aria-required="true" placeholder="Your email..." />
+                                    <span asp-validation-for="Input.Email" class="text-danger"></span>
+                                </div>
+
+                                <div @* data-mdb-input-init *@ class="form-outline mb-4">
+                                        <label asp-for="Input.Password" class="form-label"><span class="required">*</span>Password:</label>
+                                    <input asp-for="Input.Password" class="form-control" autocomplete="current-password" aria-required="true" placeholder="Your password..." />
+                                    <span asp-validation-for="Input.Password" class="text-danger"></span>
+                                </div>
+
+                                <div>
+                                    <button id="login-submit" type="submit" class="w-100 btn btn-lg btn-primary">Log in</button>
+                                </div>
+
+                                <div>
+                                    <a>  Don't have an account?</a> <a asp-page="/Account/Register"> Register Now!</a>
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Jumbotron -->
+</section>
+    <script src="~/js/loader.js"></script>
+    <script>
+        // loader.js
+        document.addEventListener("DOMContentLoaded", () => {
+            const loader = document.getElementById("loader");
+
+            function showLoader() {
+                loader.style.display = "block";
+            }
+
+            function hideLoader() {
+                loader.style.display = "none";
+            }
+
+            // Attach event listeners to all buttons
+            const buttons = document.querySelectorAll(".buttons");
+            buttons.forEach(button => {
+                button.addEventListener("click", (event) => {
+                    event.preventDefault(); // Prevent the default action
+
+                    showLoader();
+
+                    // Simulate a delay to show the loader (remove this in production)
+                    setTimeout(() => {
+                        // Navigate to the new page
+                        window.location.href = button.getAttribute("href");
+                    }, 2000);
+                });
+            });
+        });
+
+    </script>
+</body>
+</html>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+<!-- Section: Design Block -->

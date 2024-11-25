@@ -1,0 +1,69 @@
+﻿@model Fresh_Sense.Models.FridgeRequest
+
+@{
+    Layout = "_FaultReport"; // Use your main layout if needed
+}
+<!DOCTYPE html>
+<html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Report Fault</title>
+            <link rel="stylesheet" href="~/css/Status.css">
+            <style>
+                h2 {
+                    background-color: steelblue; /* Steel blue background */
+                    color: white; /* White text color */
+                    font-weight: bold; /* Bold text */
+                    padding: 20px; /* Padding around the text */
+                    border-radius: 15px; /* Rounded edges */
+                    margin: 20px 0; /* Margin above and below the heading */
+                    text-align: center;
+                }
+            </style>
+        </head>
+        <body>
+            
+
+            <div class="container">
+        <h2 class="text-center mb-4">Update Request Status</h2>
+            <form asp-action="Edit" method="post" class="fault-edit-form" >
+                    <input type="hidden" asp-for="RequsetID" />
+
+                    <div class="form-group">
+                        <label asp-for="FridgeModel" class="form-label">Fridge Model:</label>
+                        <input asp-for="FridgeModel" class="form-control" readonly />
+                        <span asp-validation-for="FridgeModel" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="ReasonForRequest" class="form-label">Reason for Request:</label>
+                        <input asp-for="ReasonForRequest" class="form-control" readonly />
+                        <span asp-validation-for="ReasonForRequest" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="MoreAboutYourRequest" class="form-label">More About Your Request:</label>
+                        <input asp-for="MoreAboutYourRequest" class="form-control" readonly />
+                        <span asp-validation-for="MoreAboutYourRequest" class="text-danger"></span>
+                    </div>
+        
+
+                    <div class="form-group">
+                        <label asp-for="Status" class="form-label">Status:</label>
+                        <select asp-for="Status" class="form-control">
+                            <option value="Pending Approval">Pending Approval</option>
+                            <option value="Approved">Approved</option>
+                            <option value="Declined">Declined</option>
+                        </select>
+                        <span asp-validation-for="Status" class="text-danger"></span>
+                    </div>
+
+                    <div class="text-center mt-4">
+                        <button type="submit" class="btn btn-primary">Save</button>
+                         <a class="cancel" href="@Url.Action("Index", "FridgeRequest")">Cancel</a>
+                    </div>
+                </form>
+            </div>
+        </body>
+</html>

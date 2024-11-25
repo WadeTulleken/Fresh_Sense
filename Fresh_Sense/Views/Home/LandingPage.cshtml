@@ -1,0 +1,160 @@
+﻿@{
+    Layout = "_LandingPage";
+}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>FreshSense Landing Page</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="~/css/StyleLandingPage.css" />
+</head>
+
+<body>
+    <header id="header">
+        <div class="header-content-div">
+            <a href="#home-sec">
+                <img src="~/css/FreshSense-logo.jpg" alt="Company Logo" id="header-img" />
+            </a>
+            <nav id="nav-bar">
+                <a href="#about" class="nav-link">ABOUT</a>
+                <a href="#our-service" class="nav-link">OUR SERVICE</a>
+                <a href="#team" class="nav-link">TEAM</a>
+                <a class="nav-link" asp-area="Identity" asp-page="/Account/Login">SIGN-IN</a>
+                <a class="nav-link" asp-area="Identity" asp-page="/Account/Register">REGISTER</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="home-sec" class="flexible home-sec">
+            <div class="eye-grabber-img">
+                <img src="~/css/Pic1LandingPage.jpeg" alt="Promotional Image for Service" />
+            </div>
+            <div class="eye-grabber">
+                <h1 class="main-heading animated-text">Fast, Efficient, at your service.</h1>
+                <p class="sub-text visible-text">Click the button below to Register!</p>
+                <a class="btn register-btn" asp-area="Identity" asp-page="/Account/Register">REGISTER</a>
+            </div>
+        </section>
+
+        <section id="about" class="sec-padding">
+            <h3 class="section-heading">ABOUT US</h3>
+            <div class="sec-content-div flexible">
+                <p class="about-desc">
+                    FreshSense is a leading refrigerator distribution company dedicated to providing high-quality,
+                    energy-efficient refrigeration solutions to businesses.
+                    Our extensive range of products includes the latest models from top brands, ensuring that our clients have
+                    access to the best technology for their cooling needs. With a commitment to excellent customer service and fast, reliable delivery
+                    , FreshSense makes it easy to keep your beverage cooler than ever. Whether you're looking for a compact fridge for a small space or
+                    a commercial unit for a large operation, FreshSense has the perfect solution for you.
+                </p>
+                <img src="~/css/Pic2LandingPage.jpeg" alt="Fridges" />
+            </div>
+        </section>
+
+        <section id="our-service" class="sec-padding">
+            <h3 class="section-headingsSERV">OUR SERVICES</h3>
+            <div class="sec-content-div">
+                <div class="bars">
+                    <div class="icon-container">
+                        <img src="https://i.ibb.co/w6H542X/Fresh.png" alt="" />
+                    </div>
+                    <div class="txt-container">
+                        <h5>CUSTOMER MANAGEMENT</h5>
+                        <p>- Our customer management is second to none.</p>
+                    </div>
+                </div>
+                <div class="bars">
+                    <div class="icon-container">
+                        <img src="https://i.ibb.co/FKNq4Qr/delivered.png" alt="" />
+                    </div>
+                    <div class="txt-container">
+                        <h5>FRIDGE FAULT</h5>
+
+                        <p>
+                            - Issues with your order? Our Fridge Fault team will get you sorted out.
+                        </p>
+
+                    </div>
+                </div>
+                <div class="bars">
+                    <div class="icon-container">
+                        <img src="~/css/maintanance.png" alt="" />
+                    </div>
+                    <div class="txt-container">
+                        <h5>FRIDGE MAINTENANCE</h5>
+
+                        <p>
+                            - We have routine and skilled maintenance.
+                        </p>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="team" class="sec-padding">
+            <h3 class="section-heading">MEET OUR TEAM</h3>
+            <h4 class="team-name">M.D.S Interactive Developers</h4>
+            <div class="sec-content-div flexible">
+                <div>
+                    <div class="tile">
+                        <img src="~/css/Sibz.jpeg" alt="photo of amber apples" />
+                        <h4>Mr. Bacela Sisipho</h4>
+                        <p>
+                            Our valued head of Fridge Fault concerns.
+                            Ensure streamlines communication between customers
+                            and Fault Technicians, allowing customers to report faults, track their status, and request new fridges.
+                        </p>
+                    </div>
+                    <div class="tile">
+                        <img src="~/css/DanielO.jpg" alt="Photo of American Trel Apples" />
+                        <h4>Mr. Daniel Ostling</h4>
+                        <p>
+                            Our esteemed purchasing manager, excelling in optimizing procurement processes and ensuring
+                            the highest quality fridges.
+                        </p>
+                    </div>
+                </div>
+                <div>
+                    
+
+                    <div class="tile">
+                        <img src="~/css/Mbiko's.jpg" alt="Photo of American Trel Apples" />
+                        <h4>Mr. Nonxuba Mbiko</h4>
+                        <p>
+                            Our respected leader in all matters related to fridge maintenance, ensuring comprehensive oversight
+                            and expert guidance for all maintenance activities and customer service interactions.
+                        </p>
+                    </div>
+                    <div class="tile">
+                        <img src="~/css/Wade.jpeg" alt="" />
+                        <h4>Mr. Wade Tulleken</h4>
+                        <p>
+                            Our dedicated head of Customer Management. 
+                            Oversees customer relations, ensuring smooth fridge allocation and exceptional service. 
+                            Additionally, streamlines purchase requests and ensures efficient stock control.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="sec-padding" id="contact">
+            <h3 class="section-heading-contact">CONTACT</h3>
+            <div class="sec-content-div flexible">
+                <h6>Do you have any queries or just want to know more? Contact us:</h6>
+                <div class="card">
+                    <a href="mailto:Info@FreshSense.com">Info@FreshSense.com</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    
+</body>
+
+</html>
+

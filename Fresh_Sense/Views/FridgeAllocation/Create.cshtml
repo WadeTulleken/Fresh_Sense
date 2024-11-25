@@ -1,0 +1,158 @@
+﻿@* @model Fresh_Sense.Models.FridgeAllocation
+
+@{
+    Layout = "_Layout";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fridge Allocation</title>
+    <link rel="stylesheet" href="~/css/MaintenanceTechn_Forms.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+</head>
+<body>
+    <div class="container">
+        <main>
+            <h1>Create Fridge Allocation</h1>
+            <form method="post" asp-action="Create" onsubmit="showNotification(event)">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                <div class="form-group row">
+                    <div class="form-group">
+                        <label asp-for="CustomerName">Customer Name:</label>
+                        <select asp-for="CustomerName" class="form-control" placeholder="Enter your name">
+                            <option value="none" selected disabled hidden>Select an Option</option>
+                            @foreach (var customer in ViewBag.Customers)
+                            {
+                                <option value="">@customer.FullName</option>
+                            }
+                        </select>
+                        <span asp-validation-for="CustomerName" class="text-danger"></span>
+
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="SerialNumber" class="control-label">Serial Number:</label>
+                        <input asp-for="SerialNumber" class="form-control" placeholder="Enter your Serial Number" />
+                        <span asp-validation-for="SerialNumber" class="text-danger"></span>
+                    </div>
+                    
+                    
+
+                <div class="form-group">
+                    <label asp-for="Model" class="control-label">Model:</label>
+                    <textarea asp-for="Model" class="form-control" placeholder="Enter the Model"></textarea>
+                    <span asp-validation-for="Model" class="text-danger"></span>
+                </div>
+ 
+
+                <div class="buttons">
+                    <button type="submit" class="submit">Allocation</button>
+                    <a class="cancel" href="@Url.Action("CustomerLiaisonPortal", "Home")">Cancel</a>
+                </div>
+            </form>
+        </main>
+    </div>
+
+    <script>
+        function showNotification(event) {
+            event.preventDefault();
+
+            Swal.fire({
+                title: 'Success!',
+                text: 'Fridge allocation created successfully.',
+                icon: 'success',
+                confirmButtonText: 'OK'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    event.target.submit();
+                }
+            });
+        }
+    </script>
+</body>
+</html>
+ *@
+
+ @model Fresh_Sense.Models.FridgeAllocation
+
+@{
+    Layout = "_Layout";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fridge Allocation</title>
+    <link rel="stylesheet" href="~/css/MaintenanceTechn_Forms.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+</head>
+<body>
+    <div class="container">
+        <main>
+            <h1>Create Fridge Allocation</h1>
+            <form method="post" asp-action="Create" onsubmit="showNotification(event)">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                <div class="form-group row">
+                    <!-- Customer Name Dropdown -->
+                    <div class="form-group">
+                        <label asp-for="CustomerName">Customer Name:</label>
+                        <select asp-for="CustomerName" class="form-control">
+                            <option value="" selected disabled hidden>Select a Customer</option>
+                            @foreach (var customer in ViewBag.Customers)
+                            {
+                                <option value="@customer.FullName">@customer.FullName</option>
+                            }
+                        </select>
+                        <span asp-validation-for="CustomerName" class="text-danger"></span>
+                    </div>
+
+                    <!-- Serial Number Input -->
+                    <div class="form-group">
+                        <label asp-for="SerialNumber" class="control-label">Serial Number:</label>
+                        <input asp-for="SerialNumber" class="form-control" placeholder="Enter your Serial Number" />
+                        <span asp-validation-for="SerialNumber" class="text-danger"></span>
+                    </div>
+
+                    <!-- Model Input -->
+                    <div class="form-group">
+                        <label asp-for="Model" class="control-label">Model:</label>
+                        <textarea asp-for="Model" class="form-control" placeholder="Enter the Model"></textarea>
+                        <span asp-validation-for="Model" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <!-- Submit and Cancel Buttons -->
+                <div class="buttons">
+                    <button type="submit" class="submit">Allocate</button>
+                    <a class="cancel" href="@Url.Action("CustomerLiaisonPortal", "Home")">Cancel</a>
+                </div>
+            </form>
+        </main>
+    </div>
+
+    <!-- SweetAlert Notification -->
+    <script>
+        function showNotification(event) {
+            event.preventDefault();
+
+            Swal.fire({
+                title: 'Success!',
+                text: 'Fridge allocation created successfully.',
+                icon: 'success',
+                confirmButtonText: 'OK'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    event.target.submit();
+                }
+            });
+        }
+    </script>
+</body>
+</html>

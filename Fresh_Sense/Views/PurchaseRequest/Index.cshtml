@@ -1,0 +1,51 @@
+﻿@{
+    Layout = "_PurchaseRequests";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FreshSense Dashboard</title>
+    <link rel="stylesheet" href="@Url.Content("~/css/MaintenanceLandingPage.css")">
+</head>
+<body>
+
+    <main>
+        <section class="dashboard">
+            <div class="card">
+                <div class="icon">
+                    <img src="@Url.Content("~/css/PurchaseRequest.jpg")" alt="Purchase Request Icon">
+
+                </div>
+                <h3>Process Purchase Request</h3>
+                <a class="select-btn" asp-controller="ProcessPurchaseRequest" asp-action="Index">Select</a>
+            </div>
+            <div class="card">
+                <div class="icon">
+                    <img src="@Url.Content("~/css/QuotationRequest.jpg")" alt="Quotation Request Icon">
+
+                </div>
+                <h3>Create Request for Quotation</h3>
+                <a class="select-btn" asp-controller="RequestForQuotation" asp-action="Create">Select</a>
+            </div>
+            <div class="card">
+                <div class="icon">
+                    <img src="@Url.Content("~/css/ProcessQuotations.png")" alt="Quotation Icon">
+
+                </div>
+                <h3>View/Process Quotations</h3>
+                <a class="select-btn" asp-controller="ProcessQuotation" asp-action="Index">Select</a>
+            </div>
+
+        </section>
+
+        <!-- Back button -->
+        <button class="back-btn" onclick="window.history.back()">Back</button>
+
+
+    </main>
+
+</body>
+</html>

@@ -1,0 +1,125 @@
+﻿@model Fresh_Sense.Models.Schedule_MaintenanceVisit
+
+@* @ {
+    Layout = "_FridgeServices";
+} *@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Maintenance Visit</title>
+    <link rel="stylesheet" href="~/css/maintenance_Schedule.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+</head>
+
+<body>
+    <div class="container">
+        <main>
+            <h1>Edit Maintenance Visit</h1>
+            <form asp-action="Edit" onsubmit="showNotification(event)">
+                <input type="hidden" asp-for="ScheduleMaintenanceVisitID" />
+          
+                <div class="form-group">
+                    <label asp-for="CustomerName" class="control-label">Customer Name:</label>
+                    <input asp-for="CustomerName" class="form-control" placeholder="Enter Customer Name" />
+                    <span asp-validation-for="CustomerName" class="text-danger"></span>
+                </div>
+
+             
+                <div class="form-group">
+                    <label asp-for="TechnicianAllocation"><span class="required">*</span>Technician Allocation:</label>
+                    <input asp-for="TechnicianAllocation" class="form-control" placeholder="Enter Technician Name" />
+                    <span asp-validation-for="TechnicianAllocation" class="text-danger"></span>
+                </div>
+
+              
+                <div class="form-group">
+                    <label asp-for="FridgeModel" class="control-label"><span class="required">*</span>Fridge Model:</label>
+                    <input asp-for="FridgeModel" class="form-control" placeholder="Enter Fridge Model" />
+                    <span asp-validation-for="FridgeModel" class="text-danger"></span>
+                </div>
+
+                <!-- Location -->
+                <div class="form-group">
+                    <label asp-for="Location" class="control-label"><span class="required">*</span>Location:</label>
+                    <input asp-for="Location" class="form-control" placeholder="Enter Maintenance Location" />
+                    <span asp-validation-for="Location" class="text-danger"></span>
+                </div>
+
+                <!-- Date -->
+                <div class="form-group">
+                    <label asp-for="Date"> <span class="required">*</span>Date:</label>
+                    <input asp-for="Date" type="date" class="form-control" required />
+                    <span asp-validation-for="Date" class="text-danger"></span>
+                </div>
+
+                <!-- Time -->
+                <div class="form-group">
+                    <label asp-for="Time" class="control-label"><span class="required">*</span>Time:</label>
+                    <input asp-for="Time" class="form-control" type="time" placeholder="Enter Time" />
+                    <span asp-validation-for="Time" class="text-danger"></span>
+                </div>
+
+                <!-- Notes -->
+                <div class="form-group">
+                    <label asp-for="Notes" class="control-label">Notes:</label>
+                    <textarea asp-for="Notes" class="form-control" placeholder="Enter any additional notes"></textarea>
+                    <span asp-validation-for="Notes" class="text-danger"></span>
+                </div>
+
+          
+                <div class="buttons">
+                    <button type="submit" class="submit">Save Changes</button>
+                    <a class="cancel" href="@Url.Action("Index", "Manage_ScheduleVisit")">Cancel</a>
+                </div>
+            </form>
+        </main>
+    </div>
+
+    <script>
+        function showNotification(event) {
+            event.preventDefault();
+
+            Swal.fire({
+                title: 'Success!',
+                text: 'Changes saved successfully.',
+                icon: 'success',
+                confirmButtonText: 'OK'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    event.target.submit();
+                }
+            });
+        }
+
+        function confirmDelete() {
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#d33',
+                cancelButtonColor: '#3085d6',
+                confirmButtonText: 'Yes, delete it!',
+                cancelButtonText: 'No, cancel!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // If confirmed, submit the form to delete
+                    // Change this URL to the correct delete action if necessary
+                    const form = document.createElement('form');
+                    form.method = 'POST'; // or 'GET' depending on your implementation
+                    form.action = '@Url.Action("Delete", "Schedule_MaintenanceVisitController")'; // adjust controller/action as needed
+                    form.innerHTML = '<input type="hidden" name="ScheduleMaintenanceVisitID" value="' + document.querySelector('[name=ScheduleMaintenanceVisitID]').value + '" />';
+                    document.body.appendChild(form);
+                    form.submit();
+                }
+            });
+        }
+    </script>
+   
+</body>
+
+</html>

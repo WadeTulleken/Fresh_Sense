@@ -1,0 +1,90 @@
+﻿@model Fresh_Sense.Models.FridgeRequest
+
+@{
+    Layout = "_ProcessFaults";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Process Faults</title>
+    <link rel="stylesheet" href="~/css/ViewFault.css">
+
+    <style>
+        h2 {
+            background-color: steelblue; /* Steel blue background */
+            color: white; /* White text color */
+            font-weight: bold; /* Bold text */
+            padding: 20px; /* Padding around the text */
+            border-radius: 15px; /* Rounded edges */
+            margin: 20px 0; /* Margin above and below the heading */
+            text-align: center;
+        }
+
+        .custom-back-button {
+            float: right; /* Moves the button to the right */
+            background-color: red; /* Sets the background color to red */
+            color: white; /* Sets the text color to white for better contrast */
+            padding: 10px 20px; /* Adds some padding for better appearance */
+            text-decoration: none; /* Removes the underline from the link */
+            border-radius: 5px; /* Adds rounded corners to the button */
+        }
+
+            .custom-back-button:hover {
+                background-color: darkred; /* Changes the background color on hover for better user experience */
+            }
+
+        .button {
+            background-color: steelblue;
+            color: white;
+            padding: 10px 15px;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h2>Manage Fridge Request</h2>
+    </div>
+    <a href="@Url.Action("Index", "FridgeRequest")" class="back-button custom-back-button">Back</a>
+
+    <div class="container">
+        <div class="content">
+            <table>
+                <tr>
+                    <th>Request Number:</th>
+                    <td>@Model.RequsetID</td>
+                </tr>
+                <tr>
+                    <th>Fridge Model:</th>
+                    <td>@Model.FridgeModel</td>
+                </tr>
+                <tr>
+                    <th>Reason for Request:</th>
+                    <td>@Model.ReasonForRequest</td>
+                </tr>
+                <tr>
+                    <th>More about the Request:</th>
+                    <td>@Model.MoreAboutYourRequest</td>
+                </tr>
+                <tr>
+                    <th>Status:</th>
+                    <td>@Model.Status</td>
+                </tr>
+                
+            </table>
+            <div>
+                <a href="@Url.Action("Edit", "FridgeRequest", new { id = Model.RequsetID })" class="button">Update Status</a>
+
+            </div>
+            @* <div>
+                <a href="@Url.Action("Create", "FaultTechVisit")" class="button">Schedule Visit</a>
+                <button class="no-print" onclick="window.print()">Print this page</button>
+            </div> *@
+        </div>
+    </div>
+</body>
+</html>

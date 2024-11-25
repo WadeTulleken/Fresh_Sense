@@ -1,0 +1,82 @@
+﻿@{
+    Layout = "_FridgeHistory";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fridge Maintenance History</title>
+    <link rel="stylesheet" href="~/css/MaintenanceHistoryStyle.css">
+</head>
+<body>
+    @* <div class="container">
+        <header class="header">
+            <div class="logo">
+                <img src="logo.png" alt="FreshSense Logo">
+            </div>
+            <div class="user-info">
+                <p>Sisipho Mayers <br>[Maintenance Technician]</p>
+                <button class="logout">Log-out</button>
+            </div>
+        </header>
+ *@
+        <div class="content">
+            <h1>View Fridge Maintenance History</h1>
+            <div class="fridge-info">
+                <p><strong>Customer:</strong> Mbiko</p>
+                <p><strong>Series Number:</strong> 152-344</p>
+                <p><strong>Model:</strong> Side-by-side Cooler</p>
+            </div>
+
+            <table class="maintenance-table">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Technician</th>
+                        <th>Fault Type</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>20/05/23</td>
+                        <td>Asavela Sotheni</td>
+                        <td>Defrost System Failure</td>
+                        <td>Completed</td>
+                    </tr>
+                    <tr>
+                        <td>03/05/24</td>
+                        <td>Asavela Sotheni</td>
+                        <td>Ice Maker</td>
+                        <td>Completed</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+       @*  <footer class="footer">
+            <div class="footer-links">
+                <a href="#">Support</a> |
+                <a href="#">Help Center</a> |
+                <a href="#">Company</a> |
+                <a href="#">About</a> |
+                <a href="#">Team</a> |
+                <a href="#">Legal</a>
+            </div>
+            <div class="social-links">
+                <a href="#"><img src="twitter-icon.png" alt="Twitter"></a>
+                <a href="#"><img src="facebook-icon.png" alt="Facebook"></a>
+                <a href="#"><img src="linkedin-icon.png" alt="LinkedIn"></a>
+            </div>
+        </footer>
+    </div> *@
+
+    <button type="button" class="back-btn" onclick="window.location.href='@Url.Action("MaintenanceTechn", "Home")'">Back</button>
+
+
+
+
+</body>
+</html>

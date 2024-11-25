@@ -1,0 +1,86 @@
+﻿@model Fresh_Sense.Models.Maintenance_Fault
+
+@{
+    Layout = "_FaultReport";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maintenance Fault</title>
+    <link rel="stylesheet" href="~/css/MaintenanceTechn_Forms.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+</head>
+<body>
+    <div class="container">
+        <main>
+            <h1>Report Fault</h1>
+            <form method="post" asp-action="Create" onsubmit="showNotification(event)">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                <div class="form-group row">
+                    <div class="form-group">
+                        <label asp-for="TechnicianAllocation"><span class="required">*</span> Technician Allocation:</label>
+                        <input asp-for="TechnicianAllocation" class="form-control" placeholder="Enter Technician Name" />
+                        <span asp-validation-for="TechnicianAllocation" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="FridgeModel" class="control-label"><span class="required">*</span> Fridge Model:</label>
+                        <input asp-for="FridgeModel" class="form-control" placeholder="Enter your fridge model" />
+                        <span asp-validation-for="FridgeModel" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="DateReported"><span class="required">*</span> Report Date:</label>
+                        <input asp-for="DateReported" type="date" id="report-date" required>
+                        <span asp-validation-for="DateReported" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="Status"><span class="required">*</span> Status:</label>
+                        <select asp-for="Status" class="form-control">
+                            <option value="">Select Status</option>
+                            <option value="pending">Pending</option>
+                            <option value="resolved">Resolved</option>
+                        </select>
+                        <span asp-validation-for="Status" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="FaultDesc" class="control-label">Fault Description:</label>
+                        <textarea asp-for="FaultDesc" class="form-control" placeholder="Enter your Fault Description"></textarea>
+                        <span asp-validation-for="FaultDesc" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="buttons">
+                    <button type="submit" class="submit">Submit</button>
+                    <a class="cancel" href="@Url.Action("MaintenanceTechn", "Home")">Cancel</a>
+                </div>
+            </form>
+        </main>
+    </div>
+
+    <script>
+        function showNotification(event) {
+            event.preventDefault();
+
+            Swal.fire({
+                title: 'Success!',
+                text: 'Fault reported successfully.',
+                icon: 'success',
+                confirmButtonText: 'OK'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    event.target.submit();
+                }
+            });
+        }
+    </script>
+
+    <button type="button" class="back-btn" onclick="window.location.href='@Url.Action("MaintenanceTechn", "Home")'">Back</button>
+</body>
+</html>

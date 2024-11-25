@@ -1,0 +1,105 @@
+﻿@page
+@model RegisterModel
+@{
+    ViewData["Title"] = "Register";
+}
+
+
+
+<div class="card">
+    <div class="card-body py-5 px-md-5">
+        <div class="form-container">
+
+            <style>
+                .required {
+                    color: red;
+                }
+            </style>
+
+            <p style="color: hsl(217, 10%, 50.8%)">
+                FreshSense is a leading refrigerator distribution company dedicated to providing high-quality,
+                energy-efficient refrigeration solutions to businesses.
+                Our extensive range of products includes the latest models from top brands, ensuring that our clients have
+                access to the best technology for their cooling needs. With a commitment to excellent customer service and fast, reliable delivery
+                , FreshSense makes it easy to keep your beverage cooler than ever. Whether you're looking for a compact fridge for a small space or
+                a commercial unit for a large operation, FreshSense has the perfect solution for you.
+
+            </p>
+            <br>
+            <p><strong>Fill in the information below for us to create an account for you:</strong></p>
+
+            <div class="row">
+                <div class="col-md-4">
+                    <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
+
+                        <hr />
+                        <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+
+
+                        <div class="form-outline mb-3">
+                            <label asp-for="Input.Role"><span class="required">*</span>Select Role:</label>
+                            <select asp-for="Input.Role" class="form-control">
+                                <option value="">-- Select Role --</option>
+                                <option value="Customer Liaison">Customer Liaison</option>
+                                <option value="Inventory Liaison">Inventory Liaison</option>
+                                <option value="Customer">Customer</option>
+                                <option value="Fault Technician">Fault Technician</option>
+                                <option value="Maintenance Technician">Maintenance Technician</option>
+                                <option value="Purchasing Manager">Purchasing Manager</option>
+                            </select>
+                            <span asp-validation-for="Input.Role" class="text-danger"></span>
+                        </div>
+
+
+
+
+
+                        <div class="form-outline mb-3">
+
+                            <label asp-for="Input.FirstName"><span class="required">*</span>First Name:</label>
+                            <input asp-for="Input.FirstName" class="form-control" autocomplete="username" aria-required="true" placeholder="First Name..." />
+                            <span asp-validation-for="Input.FirstName" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-outline mb-3">
+                            <label asp-for="Input.LastName"><span class="required">*</span>Last Name:</label>
+                            <input asp-for="Input.LastName" class="form-control" autocomplete="username" aria-required="true" placeholder="Surname..." />
+                            <span asp-validation-for="Input.LastName" class="text-danger"></span>
+                        </div>
+                        <div class="form-outline mb-3">
+                            <label asp-for="Input.ContactNum"><span class="required">*</span>Contact Number:</label>
+                            <input asp-for="Input.ContactNum" class="form-control" autocomplete="username" aria-required="true" placeholder="Contact Number..." />
+                            <span asp-validation-for="Input.ContactNum" class="text-danger"></span>
+                        </div>
+                        <div class="form-outline mb-3">
+                            <label asp-for="Input.Email"><span class="required">*</span>Email:</label>
+                            <input asp-for="Input.Email" class="form-control" autocomplete="username" aria-required="true" placeholder="Email Address..." />
+                            <span asp-validation-for="Input.Email" class="text-danger"></span>
+                        </div>
+                        <div class="form-outline mb-3">
+                            <label asp-for="Input.Password"><span class="required">*</span>Password:</label>
+                            <input asp-for="Input.Password" class="form-control" autocomplete="new-password" aria-required="true" placeholder="Password..." />
+                            <span asp-validation-for="Input.Password" class="text-danger"></span>
+                        </div>
+                        <div class="form-outline mb-3">
+                            <label asp-for="Input.ConfirmPassword"><span class="required">*</span>Confirm Password:</label>
+                            <input asp-for="Input.ConfirmPassword" class="form-control" autocomplete="new-password" aria-required="true" placeholder="Confirm Password..." />
+                            <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+                        </div>
+                        <button id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-primary">Register</button>
+                        <div>
+                            <a>  Already have an account?</a> <a asp-page="/Account/Login"> Redirect to our Login page</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

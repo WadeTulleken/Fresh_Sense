@@ -1,0 +1,78 @@
+﻿@{
+    Layout = "_Layout";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FreshSense Dashboard</title>
+    <link rel="stylesheet" href="~/css/FaultPortal.css">
+    <link rel="stylesheet" href="~/css/loader.css">
+
+</head>
+
+<body>
+
+
+    <div id="loader" class="loader"></div>
+    <div class="container">
+        <div class="main-content">
+            <h1>Inventory Liaison Portal</h1>
+            <div class="cards">
+                
+                <div class="card">
+                    <img src="~/css/view-fault-status.jpg" alt="Manage Fridge Inventory Icon" />
+                    <h3>Manage Fridge Inventory</h3>
+                    <br />
+                    <a type="button" class="buttons" asp-controller="FridgeInventory" asp-action="Index">Select</a>
+                </div>
+                <div class="card">
+                    <img src="~/css/request-new-fridge.jpg" alt="Create Purchase Request Icon" />
+                    <h3>Create Purchase Request</h3>
+                    <br />
+                    <a type="button" class="buttons" asp-controller="PurchaseRequest" asp-action="Create">Select</a>
+         
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    <script src="~/js/loader.js"></script>
+    <script>
+                    // loader.js
+        document.addEventListener("DOMContentLoaded", () => {
+            const loader = document.getElementById("loader");
+
+            function showLoader() {
+                loader.style.display = "block";
+            }
+
+            function hideLoader() {
+                loader.style.display = "none";
+            }
+
+            // Attach event listeners to all buttons
+            const buttons = document.querySelectorAll(".buttons");
+            buttons.forEach(button => {
+                button.addEventListener("click", (event) => {
+                    event.preventDefault(); // Prevent the default action
+
+                    showLoader();
+
+                    // Simulate a delay to show the loader (remove this in production)
+                    setTimeout(() => {
+                        // Navigate to the new page
+                        window.location.href = button.getAttribute("href");
+                    }, 2000);
+                });
+            });
+        });
+
+    </script>
+
+
+
+</body>
+</html>

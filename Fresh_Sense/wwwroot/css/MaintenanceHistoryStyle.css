@@ -1,0 +1,132 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    background-color: #0a74da;
+    color: white;
+    padding: 20px;
+}
+
+    .header .logo img {
+        width: 150px;
+    }
+
+    .header .user-info {
+        text-align: right;
+    }
+
+        .header .user-info p {
+            margin-bottom: 10px;
+        }
+
+.logout {
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.content {
+    padding: 20px;
+}
+
+    .content h1 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: #0a74da;
+    }
+
+.fridge-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: #f0f0f0;
+    border-radius: 8px;
+}
+
+    .fridge-info p {
+        flex-basis: 45%;
+        margin-bottom: 10px;
+    }
+
+.maintenance-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+    .maintenance-table th,
+    .maintenance-table td {
+        padding: 12px;
+        text-align: left;
+        border: 1px solid #ccc;
+    }
+
+    .maintenance-table th {
+        background-color: #0a74da;
+        color: white;
+    }
+
+    .maintenance-table td {
+        background-color: #f9f9f9;
+    }
+
+.footer {
+    background-color: #0a74da;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+}
+
+    .footer .footer-links a {
+        color: white;
+        margin-right: 10px;
+        text-decoration: none;
+    }
+
+    .footer .social-links img {
+        width: 24px;
+        margin-left: 10px;
+    }
+
+.back-btn {
+    position: fixed;
+    top: 100px; /* Adjust to move it down from the header */
+    right: 20px; /* Position it on the right side */
+    background-color: #ff6347; /* Tomato color */
+    color: white;
+    padding: 12px 25px; /* Rectangle shape with slightly larger padding */
+    border: none;
+    border-radius: 5px; /* Make it a rectangle by using a small radius */
+    font-size: 1.2rem;
+    cursor: pointer;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for scale and shadow */
+}
+
+    .back-btn:hover {
+        transform: scale(1.1); /* Slightly enlarge button on hover */
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Enhance shadow to make it pop */
+    }

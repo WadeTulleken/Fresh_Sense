@@ -1,0 +1,86 @@
+﻿@model Fresh_Sense.Models.FridgeRequest
+
+@{
+    Layout = "_ProcessFaults";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fault Status</title>
+    <link rel="stylesheet" href="~/css/ViewFault.css">
+    <style>
+        h2 {
+            background-color: steelblue; /* Steel blue background */
+            color: white; /* White text color */
+            font-weight: bold; /* Bold text */
+            padding: 20px; /* Padding around the text */
+            border-radius: 15px; /* Rounded edges */
+            margin: 20px 0; /* Margin above and below the heading */
+            text-align: center;
+        }
+
+        /* Move the button to the right */
+        .move-right {
+            float: right;
+        }
+
+        /* Style the button to be red */
+        .red-button {
+            background-color: red;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+        }
+
+            /* Optional: Add hover effect */
+            .red-button:hover {
+                background-color: darkred;
+            }
+
+    </style>
+</head>
+<body>
+    <div class="header">
+        
+    </div>
+    <a href="@Url.Action("Search", "FridgeRequest")" class="back-button move-right red-button">Back</a>
+
+    <div class="container">
+        <h2>Fridge Request Status</h2>
+        <div class="content">
+            <p>
+                <u>Your Fridge Request Status is as follows:</u>
+            </p>
+
+            <table>
+                <tr>
+                    <th>Request Number:</th>
+                    <td>@Model.RequsetID</td>
+                </tr>
+                <tr>
+                    <th>Fridge Model:</th>
+                    <td>@Model.FridgeModel</td>
+                </tr>
+                <tr>
+                    <th>Reason for Request:</th>
+                    <td>@Model.ReasonForRequest</td>
+                </tr>
+                <tr>
+                    <th>More about the Request:</th>
+                    <td>@Model.MoreAboutYourRequest</td>
+                </tr>
+                <tr>
+                    <th>Status:</th>
+                    <td>@Model.Status</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
+

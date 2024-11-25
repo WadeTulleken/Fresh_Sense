@@ -1,0 +1,35 @@
+﻿@model Fresh_Sense.Models.FridgeInventory
+
+@{
+    Layout = "_View";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fridge Information</title>
+    <link rel="stylesheet" href="~/css/FridgeServices.css">
+</head>
+<body>
+
+
+    <div class="fault-table">
+        <h2>View Fridge Information</h2>
+        <div class="container">
+            <h3>Make:</h3>
+            <input value="@Model.FridgeMake" readonly="readonly" />
+            <h3>Model:</h3>
+            <input value="@Model.FridgeModel" readonly="readonly" />
+            <h3>Serial Number:</h3>
+            <input value="@Model.SerialNumber" readonly="readonly" />
+            <h3>Customer Name:</h3>
+            <input value="@Model.CustomerName" readonly="readonly" />
+        </div>
+        
+    </div>
+
+    <button type="button" class="back-btn" onclick="window.location.href='@Url.Action("Index", "FridgeInventory")'">Back</button>
+
+</body>
+</html>

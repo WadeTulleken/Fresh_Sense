@@ -1,0 +1,96 @@
+﻿@{
+    Layout = "_Profile";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FreshSense Dashboard</title>
+    <link rel="stylesheet" href="~/css/MaintenacePortal.css">
+    <link rel="stylesheet" href="~/css/loader.css">
+</head>
+<body>
+
+    <div id="loader" class="loader"></div>
+    <div class="container">
+
+        <div class="main-content">
+            <h1>Maintenance Portal</h1>
+            <div class="cards">
+                @* <div class="card">
+                    <img src="~/css/Fridge Service img.jpg" alt="Request a New Fridge Icon" />
+                    <h3>Fridge Services</h3>
+                    <br />
+                    <a type="button" class="buttons" asp-controller="FridgeServices" asp-action="Index">Select</a>
+                </div> *@
+
+
+
+              @*   <div class="card">
+                    <img src="~/css/Fridge Fault img.jpg" alt="Request a New Fridge Icon" />
+                    <h3>Fridge Fault</h3>
+                    <br />
+                    <a type="button" class="buttons" asp-controller="FridgeFault" asp-action="Index">Select</a>
+                </div> *@
+            </div>
+
+
+            <div class="cards">
+                <div class="card">
+                    <img src="~/css/Calendar img.jpg" alt="Report Fault Icon" />
+                    <h3>View upcoming maintenance visit</h3>
+                    
+                    <br />
+                    <a type="button" class="buttons" asp-controller="ViewAppointments" asp-action="Index">Select</a>
+                </div>
+                <div class="card">
+                    <img src="~/css/Maintenance img.png" alt="View Fault Status Icon" />
+                    <h3>View fridge history</h3>
+                    <br />
+                    <a type="button" class="buttons" asp-controller="ViewHistoryPortal" asp-action="Index">Select</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="~/js/loader.js"></script>
+    <script>
+        // loader.js
+        document.addEventListener("DOMContentLoaded", () => {
+            const loader = document.getElementById("loader");
+
+            function showLoader() {
+                loader.style.display = "block";
+            }
+
+            function hideLoader() {
+                loader.style.display = "none";
+            }
+
+            // Attach event listeners to all buttons
+            const buttons = document.querySelectorAll(".buttons");
+            buttons.forEach(button => {
+                button.addEventListener("click", (event) => {
+                    event.preventDefault(); // Prevent the default action
+
+                    showLoader();
+
+                    // Simulate a delay to show the loader (remove this in production)
+                    setTimeout(() => {
+                        // Navigate to the new page
+                        window.location.href = button.getAttribute("href");
+                    }, 2000);
+                });
+            });
+        });
+
+    </script>
+
+</body>
+</html>
+
+
+

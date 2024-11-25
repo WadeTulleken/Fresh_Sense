@@ -1,0 +1,96 @@
+﻿@{
+    Layout = "_FridgeServices";
+}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fridge Fault</title>
+    <link rel="stylesheet" href="~/css/FridgeServices.css">
+</head>
+<body>
+    @*  <div class="header">
+    <div class="logo">
+    <img src="freshsense_logo.png" alt="FreshSense Logo" />
+    </div>
+    <div class="user-info">
+    <span>Azile Mayers [Customer]</span>
+    <button class="logout">Log-out</button>
+    </div>
+    </div> *@
+
+    <div class="fault-table">
+        <h2>Fridge Service</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Series Number</th>
+                    <th>Date</th>
+                    <th>Service Type</th>
+                    <th>Technician</th>
+                    <th>Cost</th>
+                    <th>Actions</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>155-122</td>
+                    <td>03/05/2024</td>
+                    <td>Maintenance</td>
+                    <td>Asavela Sotheni</td>
+                    <td>R1500</td>
+                    <td>
+                        @* <button class="view-btn">View</button> *@
+                        <button class="download-btn">Download</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>013-543</td>
+                    <td>24/05/2024</td>
+                    <td>Repairs</td>
+                    <td>Asavela Sotheni</td>
+                    <td>R2000</td>
+                    <td>
+                       @*  <button class="view-btn">View</button> *@
+                        <button class="download-btn">Download</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>546-566</td>
+                    <td>18/05/2024</td>
+                    <td>Maintenace</td>
+                    <td>Asavela Sotheni</td>
+                    <td>R700</td>
+                    <td>
+                        @* <button class="view-btn">View</button> *@
+                        <button class="download-btn">Download</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Back button -->
+    <button class="back-btn" onclick="window.history.back()">Back</button>
+
+    @*  <div class="footer">
+    <div class="support">
+    <p>Support</p>
+    <p>Help Center</p>
+    </div>
+    <div class="company">
+    <p>Company</p>
+    <p>About</p>
+    <p>Team</p>
+    </div>
+    <div class="legal">
+    <p>Legal</p>
+    </div>
+    </div> *@
+</body>
+</html>
+

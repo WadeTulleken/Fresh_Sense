@@ -1,0 +1,128 @@
+﻿@model Fresh_Sense.Models.Fault
+
+@{
+    Layout = "_FaultReport";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report Fault</title>
+    <link rel="stylesheet" href="~/css/FaultReport.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        .notification img {
+            width: 40px; /* Adjust the width */
+            height: 40px; /* Adjust the height */
+            vertical-align: middle; /* Adjust alignment */
+        }
+
+    </style>
+</head>
+<body>
+    <a class="notification" href="@Url.Action("Index", "ScheduleFaultTechVisit")">
+        <img src="~/css/bell.png" alt="notification" />
+    </a>
+    <div class="container">
+        <main>
+            <h1>Report Fault</h1>
+            <form id="faultForm" method="post" asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                <div class="form-group row">
+                    @* <div class="form-group">
+                        <label asp-for="fridgeModel">Fridge Model: <span class="text-danger">*</span></label>
+                        <input asp-for="fridgeModel" class="form-control" placeholder="Enter your Fridge Model" />
+                        <span asp-validation-for="fridgeModel" class="text-danger"></span>
+                    </div> *@
+                    <div class="form-group">
+                        <label asp-for="fridgeModel">Fridge Model: <span class="text-danger">*</span> (select one)</label>
+                        <select asp-for="fridgeModel" class="form-control" required>
+                            <option value="cooler">Cooler</option>
+                            <option value="side-by-side">Side-by-side Cooler</option>
+                            <option value="chest freezer">Chest Freezer</option>
+                            <option value="bottom freezer">Bottom Freezer</option>
+                        </select>
+                        <span asp-validation-for="fridgeModel" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="faultType" class="control-label">Fault Type: <span class="text-danger">*</span> (select one)</label>
+                        <select asp-for="faultType" class="form-control" required>
+                            <option value="temperature-issues">Temperature Issues</option>
+                            <option value="water-leakage">Water Leakage</option>
+                            <option value="noisy-operation">Noisy Operation</option>
+                            <option value="lighting-problem">Lighting Problem</option>
+                            <option value="other">Other</option>
+                        </select>
+                        <span asp-validation-for="faultType" class="text-danger"></span>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label asp-for="faultDescription" class="control-label">Fault Description: <span class="text-danger">*</span></label>
+                        <textarea asp-for="faultDescription" class="form-control" placeholder="Enter your Fault Description"></textarea>
+                        <span asp-validation-for="faultDescription" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="buttons">
+                    <button type="submit" class="submit">Submit</button>
+                    <a class="cancel" href="@Url.Action("FaultPortal", "Home")">Cancel</a>
+                </div>
+            </form>
+
+        </main>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            $('#faultForm').on('submit', function (event) {
+        event.preventDefault(); // Prevent the default form submission
+
+                const formData = $(this).serialize(); // Serialize form data
+
+        // Send the form data using AJAX
+        $.ajax({
+            type: 'POST',
+            url: '@Url.Action("Create", "Fault")',
+            data: formData,
+            success: function (response) {
+                // Show the first success notification
+                Swal.fire({
+                    title: 'Success!',
+                    text: 'Fault reported successfully.',
+                        icon: 'success',
+                            confirmButtonText: 'OK'
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                // Show the second popup with the fault ID
+                                Swal.fire({
+                                    title: 'Your Fault Number',
+                                    text: `Your Fault Number is ${response.faultID}. Use it to track your status.`,
+                                    icon: 'info',
+                                    confirmButtonText: 'OK'
+                                }).then(() => {
+                                    // Redirect to the fault view or any other desired action
+                                    window.location.href = '@Url.Action("Create", "Fault")?id=' + response.faultID;
+                                });
+                            }
+                        });
+                    },
+                    error: function () {
+                        Swal.fire({
+                            title: 'Error!',
+                            text: 'There was an issue reporting the fault. Please try again.',
+                            icon: 'error',
+                            confirmButtonText: 'OK'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

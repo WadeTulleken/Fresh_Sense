@@ -1,0 +1,64 @@
+﻿@model Fresh_Sense.Models.CreatePurchaseOrderModel
+
+@{
+    Layout = "_Purchasing";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Purchase Order</title>
+    <link rel="stylesheet" href="~/css/ProcessFaults.css">
+</head>
+
+<body>
+    <div class="container">
+        <main>
+            <h1>Create Purchase Order</h1>
+
+            <form asp-action="Create" method="post">
+                @Html.AntiForgeryToken()
+
+                <div class="form-group">
+                    <label asp-for="SupplierId" class="control-label">Supplier</label>
+                    <select asp-for="SupplierId" class="form-control" asp-items="ViewBag.Suppliers">
+                        <option value="">-- Select Supplier --</option>
+                    </select>
+                    <span asp-validation-for="SupplierId" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="FridgeModel" class="control-label">Fridge Model</label>
+                    <input asp-for="FridgeModel" class="form-control" />
+                    <span asp-validation-for="FridgeModel" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="POQuantity" class="control-label">Quantity</label>
+                    <input asp-for="POQuantity" type="number" min="1" class="form-control" />
+                    <span asp-validation-for="POQuantity" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="PODateRequired" class="control-label">Date Required</label>
+                    <input asp-for="PODateRequired" type="date" class="form-control" />
+                    <span asp-validation-for="PODateRequired" class="text-danger"></span>
+                </div>
+
+                <div class="buttons">
+                    <button type="submit" class="submit">Create Order</button>
+                    <a class="cancel" href="@Url.Action("PurchasingTechn", "Home")">Cancel</a>
+                </div>
+            </form>
+
+            @section Scripts {
+                await Html.RenderPartialAsync("_ValidationScriptsPartial")
+            }
+        </main>
+    </div>
+</body>
+
+</html>

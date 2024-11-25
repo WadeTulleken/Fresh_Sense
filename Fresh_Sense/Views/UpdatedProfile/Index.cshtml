@@ -1,0 +1,122 @@
+﻿@model Fresh_Sense.Models.ProfileViewModel
+
+@{
+    Layout = "_Profile";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FreshSense - Update Profile</title>
+    <link rel="stylesheet" href="~/css/UpdatedProfile.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+    @*<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+    $('#updateForm').on('submit', function (e) {
+    e.preventDefault(); // Prevent the default form submission
+
+    var isValid = true; // Variable to track form validity
+
+    // Check if Business Name is filled
+    if (!$('#businessName').val().trim()) {
+    $('#businessNameError').text("Business Name is required.");
+    isValid = false;
+    } else {
+    $('#businessNameError').text(""); // Clear error message if input is valid
+    }
+
+    // Check if Address is filled
+    if (!$('#address').val().trim()) {
+    $('#addressError').text("Address is required.");
+    isValid = false;
+    } else {
+    $('#addressError').text(""); // Clear error message if input is valid
+    }
+
+    // If the form is valid, proceed with AJAX call
+    if (isValid) {
+    $.ajax({
+    type: 'POST',
+    url: $(this).attr('action'),
+    data: $(this).serialize(),
+    success: function (response) {
+    if (response.success) {
+    alert("Profile updated successfully!");
+    window.location.reload(); // Reload the page
+    } else {
+    alert("An error occurred while updating the profile. Please try again.");
+    }
+    },
+    error: function (response) {
+    alert("An error occurred while updating the profile. Please try again.");
+    }
+    });
+    }
+    });
+    });
+    </script> *@
+    </head>
+    
+@* </head>
+<body> *@
+
+    @* <h1>Update Profile</h1>
+
+    <br />
+    <div class="card">
+        <div class="container">
+            <main>
+                <form id="updateForm" action="/updateProfile" method="POST" autocomplete="off" onsubmit="showNotification(event)">
+                    <div class="form-group">
+                        <label for="firstName">First Name:</label>
+                        <input type="text" id="firstName" name="FirstName" value="@Model.ApplicationUser.FirstName" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">Last Name:</label>
+                        <input type="text" id="lastName" name="LastName" value="@Model.ApplicationUser.LastName" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="contactNum">Contact Number:</label>
+                        <input type="text" id="contactNum" name="ContactNum" value="@Model.ApplicationUser.ContactNum" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address:</label>
+                        <input type="email" id="email" name="Email" value="@Model.ApplicationUser.Email" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="businessName">Business Name:</label>
+                        <input type="text" id="businessName" name="BusinessName" value="" required>
+                        <span id="businessNameError" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="address">Address:</label>
+                        <textarea id="address" name="Address" required></textarea>
+                        <span id="addressError" class="text-danger"></span>
+                    </div>
+                    <button type="submit" class="update-btn">Update</button>
+                </form>
+            </main>
+        </div>
+    </div>
+    <script>
+        function showNotification(event) {
+            event.preventDefault();
+
+            Swal.fire({
+                title: 'Success!',
+                text: 'Your Profile has been updated.',
+                icon: 'success',
+                confirmButtonText: 'OK'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    event.target.submit();
+                }
+            });
+        }
+    </script> *@
+@* </body> *@
+</html>

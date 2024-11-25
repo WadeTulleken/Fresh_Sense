@@ -1,0 +1,110 @@
+﻿@model IEnumerable<Fresh_Sense.Models.Fault>
+
+@{
+    Layout = "_ProcessFaults";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Process Faults</title>
+    <link rel="stylesheet" href="~/css/ProcessFaults.css">
+    <style>
+        /* Add some basic styling for the search box */
+        .search-container {
+            margin-bottom: 20px;
+        }
+
+        .search-box {
+            display: flex;
+        }
+
+        .search-box input {
+            flex: 1;
+            padding: 8px;
+        }
+
+        .search-box button {
+            padding: 8px;
+        }
+
+        .back-button {
+            color: white; /* Change the text color to white for better contrast */
+            background-color: red; /* Set the background color to red */
+            padding: 10px 15px; /* Add some padding */
+            text-decoration: none; /* Remove underline from the link */
+            display: inline-block; /* Make the anchor behave like a block element */
+            position: relative; /* Needed for positioning */
+            right: 0; /* Adjust as needed for right alignment */
+        }
+
+        .back-button {
+            float: right; /* Move the button to the right */
+        }
+
+    </style>
+</head>
+<body>
+    <a href="@Url.Action("FaultTechDashboard", "Home")" class="back-button">Back</a>
+
+    <div class="container">
+        <main>
+            <h1>Process Faults</h1>
+            <div class="search-container">
+                <div class="search-box">
+                    <input type="text" placeholder="Search by Fault Type" id="search">
+                    <button class="search-button">🔍</button>
+                </div>
+            </div>
+            @if (Model.Count() > 0)
+            {
+                <table id="faultTable">
+                    <thead>
+                        <tr>
+                            <th>Fault Number</th>
+                            <th>Fridge Model</th>
+                            <th>Fault Type</th>
+                            <th>Fault Description</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var fault in Model)
+                        {
+                            <tr>
+                                <td>@fault.faultID</td>
+                                <td>@fault.fridgeModel</td>
+                                <td class="fault-type">@fault.faultType</td>
+                                <td>@fault.faultDescription</td>
+                                <td>
+                                    <a type="button" class="view-button" asp-controller="Fault" asp-action="ViewFault" asp-route-id="@fault.faultID">View</a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            }
+        </main>
+    </div>
+    <script>
+        document.getElementById('search').addEventListener('input', function() {
+            var searchValue = this.value.toLowerCase();
+            var table = document.getElementById('faultTable');
+            var rows = table.getElementsByTagName('tbody')[0].getElementsByTagName('tr');
+
+            for (var i = 0; i < rows.length; i++) {
+                var faultTypeCell = rows[i].getElementsByClassName('fault-type')[0];
+                if (faultTypeCell) {
+                    var faultType = faultTypeCell.textContent || faultTypeCell.innerText;
+                    if (faultType.toLowerCase().indexOf(searchValue) > -1) {
+                        rows[i].style.display = '';
+                    } else {
+                        rows[i].style.display = 'none';
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

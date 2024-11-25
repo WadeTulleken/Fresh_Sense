@@ -1,0 +1,160 @@
+﻿body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f8ff;
+    background-size: cover;
+    color: #333;
+}
+
+
+
+main {
+    padding: 20px 0;
+}
+
+
+.container {
+    max-width: 800px; /* Increased width for larger screens */
+    margin: auto;
+    padding: 30px; /* Increased padding for more space */
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: whitesmoke;
+    margin-bottom: 20px;
+    background-color: steelblue;
+    border-radius: 15px;
+    font-weight: bold;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input[type="text"],
+select,
+textarea {
+    width: 100%;
+    padding: 12px; /* Increased padding for better touch targets */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+textarea {
+    resize: vertical;
+    height: 120px; /* Increased height for the textarea */
+}
+
+input[type="file"] {
+    border: none;
+    padding: 5px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px; /* Added space above the buttons */
+}
+
+.submit,
+.cancel {
+    padding: 10px 25px; /* Increased button padding for better touch targets */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.submit {
+    background-color: #28a745;
+    color: white;
+}
+
+    .submit:hover {
+        background-color: #218838;
+    }
+
+.cancel {
+    background-color: #dc3545;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+}
+
+    .cancel:hover {
+        background-color: #c82333;
+    }
+
+
+.heading {
+    background-color: darkcyan;
+}
+
+.logo img {
+    height: 50px;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: auto;
+    margin: 0 auto;
+    background-color: steelblue;
+}
+
+footer {
+    font-size: 1.4rem;
+    background-color: steelblue;
+    text-align: center;
+    padding: 2rem;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+    color: #fafafa;
+    position: fixed;
+    width: 100%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+    footer a {
+        color: #e3e3e3;
+        text-decoration: none;
+    }
+
+/********FOR LOGIN PARTIAL*********/
+.user-container {
+    display: flex;
+    align-items: center; /* Aligns the icon and text vertically */
+}
+
+    .user-container img {
+        width: 30px;
+        height: 30px;
+    }
+
+.user-details {
+    display: flex;
+    flex-direction: column; /* Stacks name and role vertically */
+    margin-left: 10px; /* Adds space between icon and name/role */
+}
+
+.user-role {
+    font-size: 15px;
+    color: #ccc;
+}
+
+.logout-btn {
+    margin-top: 10px; /* Adjust the value as needed */
+}

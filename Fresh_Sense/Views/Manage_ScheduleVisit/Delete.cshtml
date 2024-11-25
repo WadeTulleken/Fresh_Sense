@@ -1,0 +1,51 @@
+﻿@model Fresh_Sense.Models.Schedule_MaintenanceVisit
+
+@{
+    ViewData["Title"] = "Delete Visit";
+}
+
+
+
+<h2>Delete Visit</h2>
+
+<h3>Are you sure you want to delete this visit?</h3>
+<div>
+    
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">Customer Name</dt>
+        <dd class="col-sm-10">@Model.CustomerName</dd>
+
+        <dt class="col-sm-2">Fridge Model</dt>
+        <dd class="col-sm-10">@Model.FridgeModel</dd>
+
+        <dt class="col-sm-2">Date</dt>
+        <dd class="col-sm-10">@Model.Date</dd>
+
+        <dt class="col-sm-2">Time</dt>
+        <dd class="col-sm-10">@Model.Time</dd>
+
+        <dt class="col-sm-2">Location</dt>
+        <dd class="col-sm-10">@Model.Location</dd>
+
+        <dt class="col-sm-2">Technician</dt>
+        <dd class="col-sm-10">@Model.TechnicianAllocation</dd>
+
+        <dt class="col-sm-2">Notes</dt>
+        <dd class="col-sm-10">@Model.Notes</dd>
+    </dl>
+
+    <form asp-action="Delete" method="post" >
+        
+        <input type="hidden" asp-for="ScheduleMaintenanceVisitID" />
+        <button type="submit" class="btn btn-danger">Delete</button>
+        <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+    </form>
+
+    
+               
+
+
+
+
+</div>

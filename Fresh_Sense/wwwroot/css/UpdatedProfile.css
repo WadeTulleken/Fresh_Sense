@@ -1,0 +1,187 @@
+﻿/* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+}
+
+.container {
+    display: flex;
+    flex-direction: row; /* Sidebar and main content are in a row */
+    min-height: 100vh; /* Ensures full height of the viewport */
+}
+
+.heading {
+    background-color: darkcyan;
+}
+
+.logo img {
+    height: 50px;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: auto;
+    margin: 0 auto;
+    background-color: steelblue;
+}
+
+/* Sidebar */
+.sidebar {
+    background-color: #d9eaf7;
+    width: 250px;
+    padding-top: 20px;
+    height: 100vh; /* Full height of the viewport */
+    display: flex;
+    flex-direction: column; /* Stack sidebar items */
+    justify-content: space-between; /* Space between items and footer */
+}
+
+    .sidebar nav ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        flex-grow: 1; /* Allow sidebar items to take up remaining space */
+    }
+
+        .sidebar nav ul li {
+            margin: 10px 0;
+            line-height: 1.6; /* Improve spacing between lines */
+        }
+
+            .sidebar nav ul li a {
+                text-decoration: none;
+                padding: 10px 20px;
+                display: block;
+                color: #000;
+                font-size: 16px;
+                padding-left: 20px; /* Extra padding for readability */
+            }
+
+                .sidebar nav ul li a.active {
+                    background-color: #0070C0;
+                    color: #fff;
+                }
+
+    .sidebar ul li a:hover {
+        background: #007bff;
+        color: #fff;
+        text-decoration: none;
+        display: block;
+        padding-left: 30px; /* More padding on hover */
+    }
+
+/* Main Content */
+main {
+    padding: 20px;
+    flex: 1;
+}
+
+/* Form Styles */
+.form-group {
+    margin-bottom: 15px;
+}
+
+    .form-group label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+    }
+
+    .form-group input,
+    .form-group textarea {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+textarea {
+    resize: vertical;
+    height: 80px;
+}
+
+.update-btn {
+    background-color: #0070C0;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+    display: block;
+}
+
+/* Footer */
+footer {
+    font-size: 1.4rem;
+    background-color: steelblue;
+    text-align: center;
+    padding: 2rem;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+    color: #fafafa;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    left: 0;
+}
+
+    footer a {
+        color: #e3e3e3;
+        text-decoration: none;
+    }
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.d-flex {
+    display: flex;
+    height: calc(100% - 56px);
+}
+
+/* Heading */
+#heading {
+    background-color: steelblue;
+    padding: 20px;
+    text-align: center;
+    color: white;
+    border-radius: 5px;
+}
+
+/* Read-only Input */
+input:read-only {
+    background-color: lightgray;
+    color: black;
+    border: 1px solid #ccc;
+}
+
+/********FOR LOGIN PARTIAL*********/
+.user-container {
+    display: flex;
+    align-items: center; /* Aligns the icon and text vertically */
+}
+
+    .user-container img {
+        width: 30px;
+        height: 30px;
+    }
+
+.user-details {
+    display: flex;
+    flex-direction: column; /* Stacks name and role vertically */
+    margin-left: 10px; /* Space between icon and name/role */
+}
+
+.user-role {
+    font-size: 15px;
+    color: #ccc;
+}
+
+.logout-btn {
+    margin-top: 10px; /* Adjust the value as needed */
+}

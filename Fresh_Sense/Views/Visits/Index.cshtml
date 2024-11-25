@@ -1,0 +1,48 @@
+﻿@{
+    Layout = "_Layout";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FreshSense Dashboard</title>
+    <link rel="stylesheet" href="@Url.Content("~/css/MaintenanceLandingPage.css")">
+</head>
+<body>
+
+    <main>
+        <section class="dashboard">
+            <div class="card">
+                <div class="icon">
+                    <img src="@Url.Content("~/css/Maintenance V.gif")" alt="View Icon">
+
+                </div>
+                <h3>Schedule Maintenance Visits</h3>
+                @* <button class="select-btn">Select</button> *@
+                <a type="button" class="buttons" asp-controller="Schedule_MaintenanceVisit" asp-action="Create">Select</a>
+            </div>
+            <div class="card">
+                <div class="icon">
+                    <img src="@Url.Content("~/css/Maintenance V.gif")" alt="Visits Icon">
+
+                </div>
+                <h3>Manage Maintenance Visits</h3>
+                @* <button class="select-btn">Select</button> *@
+                <a type="button" class="buttons" asp-controller="Manage_ScheduleVisit" asp-action="Index">Select</a>
+            </div>
+
+        </section>
+
+        <!-- Back button -->
+ @*        <button class="back-btn" onclick="window.history.back()">Back</button> *@
+       @*  <button type="button" class="back-btn" onclick="window.location.href='@Url.Action("MaintenanceTechn", "Home")'">Back</button> *@
+
+    </main>
+
+    <button type="button" class="back-btn" onclick="window.location.href='@Url.Action("MaintenanceTechn", "Home")'">Back</button>
+
+</body>
+</html>
+

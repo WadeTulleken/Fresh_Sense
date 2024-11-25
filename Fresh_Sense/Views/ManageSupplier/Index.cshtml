@@ -1,0 +1,52 @@
+﻿@model IEnumerable<Fresh_Sense.Models.Suppliers>
+
+@{
+    Layout = "_Purchasing";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Suppliers</title>
+    <link rel="stylesheet" href="~/css/ProcessFaults.css">
+</head>
+<body>
+    <a href="@Url.Action("PurchasingTechn", "Home")" class="back-button">Back</a>
+    <div class="container">
+        <main>
+            <h1>Manage Suppliers</h1>
+            @if (Model.Count() > 0)
+            {
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Supplier Name</th>
+                            <th>Phone Number</th>
+                            <th>Email</th>
+                            <th>View and Edit</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var supplier in Model)
+                        {
+                            <tr>
+                                <td>@supplier.SupplierName</td>
+                                <td>@supplier.SupplierPhoneNo</td>
+                                <td>@supplier.SupplierEmail</td>
+                                <td>
+                                    <a href="@Url.Action("Edit", "Supplier", new { id = supplier.SupplierId })" class="view-button">View and Edit</a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            }
+            else
+            {
+                <p>No suppliers found.</p>
+            }
+        </main>
+    </div>
+</body>
+</html>

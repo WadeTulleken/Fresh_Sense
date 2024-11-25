@@ -1,0 +1,106 @@
+﻿@model Fresh_Sense.Models.Schedule_MaintenanceVisit
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedule Maintenance Visit</title>
+    <link rel="stylesheet" href="~/css/maintenance_Schedule.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <style>
+        .required {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <main>
+            <h1>Schedule Maintenance Visit</h1>
+            <form method="post" asp-action="Create" onsubmit="showNotification(event)">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                <div class="form-group row">
+                    <!-- Customer Name -->
+                    <div class="form-group">
+                        <label asp-for="CustomerName" class="control-label"><span class="required">*</span> Customer Name:</label>
+                        <input asp-for="CustomerName" class="form-control" placeholder="Enter Customer Name" />
+                        <span asp-validation-for="CustomerName" class="text-danger"></span>
+                    </div>
+
+                    <!-- Technician Allocation -->
+                    <div class="form-group">
+                        <label asp-for="TechnicianAllocation"><span class="required">*</span> Technician Allocation:</label>
+                        <input asp-for="TechnicianAllocation" class="form-control" placeholder="Enter Technician Name" />
+                        <span asp-validation-for="TechnicianAllocation" class="text-danger"></span>
+                    </div>
+
+                    <!-- Fridge Model -->
+                    <div class="form-group">
+                        <label asp-for="FridgeModel" class="control-label"><span class="required">*</span> Fridge Model:</label>
+                        <input asp-for="FridgeModel" class="form-control" placeholder="Enter Fridge Model" />
+                        <span asp-validation-for="FridgeModel" class="text-danger"></span>
+                    </div>
+
+                    <!-- Location -->
+                    <div class="form-group">
+                        <label asp-for="Location" class="control-label"><span class="required">*</span> Location:</label>
+                        <input asp-for="Location" class="form-control" placeholder="Enter Maintenance Location" />
+                        <span asp-validation-for="Location" class="text-danger"></span>
+                    </div>
+
+                    <!-- Date -->
+                    <div class="form-group">
+                        <label asp-for="Date"><span class="required">*</span> Date:</label>
+                        <input asp-for="Date" type="date" class="form-control" required />
+                        <span asp-validation-for="Date" class="text-danger"></span>
+                    </div>
+
+                    <!-- Time -->
+                    <div class="form-group">
+                        <label asp-for="Time" class="control-label"><span class="required">*</span> Time:</label>
+                        <input asp-for="Time" class="form-control" type="time" placeholder="Enter Time" />
+                        <span asp-validation-for="Time" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="Notes" class="control-label">Notes:</label>
+                        <textarea asp-for="Notes" class="form-control" placeholder="Enter any additional notes"></textarea>
+                        <span asp-validation-for="Notes" class="text-danger"></span>
+                    </div>
+
+
+
+                </div>
+
+                <div class="buttons">
+                    <button type="submit" class="submit">Submit</button>
+                    <a class="cancel" href="javascript:history.back()">Cancel</a>
+                </div>
+            </form>
+
+        </main>
+    </div>
+
+    <script>
+        function showNotification(event) {
+            event.preventDefault();
+
+            Swal.fire({
+                title: 'Success!',
+                text: 'Visit scheduled successfully.',
+                icon: 'success',
+                confirmButtonText: 'OK'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    event.target.submit();
+                }
+            });
+        }
+    </script>
+
+    <button type="button" class="back-btn" onclick="window.history.back()">Back</button>
+
+</body>
+</html>

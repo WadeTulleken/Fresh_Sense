@@ -1,0 +1,48 @@
+﻿@model IEnumerable<Fresh_Sense.Models.FridgeInventory>
+
+@{
+    Layout = "_View";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fridge Inventory</title>
+    <link rel="stylesheet" href="~/css/FridgeServices.css">
+</head>
+<body>
+
+
+    <div class="fault-table">
+        <h2>Manage Fridges</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Make</th>
+                    <th>Model</th>
+                    <th>Serial Number</th>
+                    <th>Customer Name</th>
+                    <th>View</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var Fridge in Model)
+                {
+                    <tr>
+                        <td>@Fridge.FridgeMake</td>
+                        <td>@Fridge.FridgeModel</td>
+                        <td>@Fridge.SerialNumber</td>
+                        <td>@Fridge.CustomerName</td>
+                        <td><a asp-action="FridgeDetails" asp-route-id="@Fridge.FridgeInventoryID" class="btn btn-primary">View Details</a></td>
+                    </tr>
+                }
+                
+            </tbody>
+        </table>
+    </div>
+
+    <button type="button" class="back-btn" onclick="window.location.href='@Url.Action("InventoryLiaisonPortal", "Home")'">Back</button>
+
+</body>
+</html>

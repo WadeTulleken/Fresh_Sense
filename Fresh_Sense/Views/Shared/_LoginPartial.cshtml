@@ -1,0 +1,47 @@
+﻿@using Fresh_Sense.Areas.Identity
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+
+
+<ul class="navbar-nav">
+    @if (SignInManager.IsSignedIn(User))
+    {
+        <li class="nav-item">
+            @{
+                var currentuser = await UserManager.GetUserAsync(User);
+                var roles = await UserManager.GetRolesAsync(currentuser);
+                var role = roles.FirstOrDefault(); // Assuming a user has only one role
+            }
+
+            <a class="nav-link text-white user-container" asp-area="Identity" asp-page="/Account/Manage/Profile" title="Manage">
+                <img src="~/css/user_icon.png" alt="User Icon" />
+                <div class="user-details">
+                    <span>@currentuser.FirstName @currentuser.LastName</span>
+                    <span class="user-role">@role</span>
+                </div>
+            </a>
+
+        </li>
+        <li class="nav-item">
+            <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("LandingPage", "Home", new { area = "" })">
+                <button type="submit" class="nav-link btn btn-link text-white logout-btn" style="background-color:red;">
+                    Log-out
+                    <img src="~/css/LogOut.png" alt="Log-out Icon" style="width: 16px; height: 16px; margin-left: 5px;">
+                </button>
+
+            </form>
+        </li>
+    }
+    else
+    {
+        <li class="nav-item">
+            <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Register">Register</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Login">Login</a>
+        </li>
+    }
+</ul>
+

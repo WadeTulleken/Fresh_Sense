@@ -1,0 +1,46 @@
+﻿@page
+@model RegisterConfirmationModel
+@{
+    ViewData["Title"] = "";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>FreshSense Landing Page</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="~/css/ConfirmEmail.css" />
+</head>
+
+<body>
+
+
+<h1>@ViewData["Title"]</h1>
+@{
+    if (@Model.DisplayConfirmAccountLink)
+    {
+
+<div class="card">
+            <h1 align="center">Confirmation Verificiation<br /></h1>
+<p align="center">
+
+                    Welcome!<br />
+                    To activate your account and gain access to our services, please verify your email by clicking the link below:<br /> 
+                    <a id="confirm-link" href="@Model.EmailConfirmationUrl">Click here for verification</a><br /> 
+                    This step is essential to ensure the security of your account. If you did not create an account with us, no further action is required.
+
+
+</p>
+</div>
+    }
+    else
+    {
+<p>
+        Please check your email to confirm your account.
+</p>
+    }
+}
+</body>
+</html>

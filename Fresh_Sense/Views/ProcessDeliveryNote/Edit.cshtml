@@ -1,0 +1,53 @@
+﻿@model Fresh_Sense.Models.ProcessDeliveryNoteModel
+
+@{
+    Layout = "_Purchasing";
+}
+
+<div class="container">
+    <h2 class="text-center mb-4">Edit Delivery Note</h2>
+    <form asp-action="Edit" method="post" class="delivery-note-edit-form">
+        @Html.AntiForgeryToken()
+
+        <input type="hidden" asp-for="DNId" /> <!-- Hidden field for DNId -->
+        <input type="hidden" asp-for="SupplierId" /> <!-- Keep the SupplierId hidden -->
+        <input type="hidden" asp-for="FridgeModel" /> <!-- Keep the FridgeModel hidden -->
+        <input type="hidden" asp-for="DNQuantity" /> <!-- Keep the quantity hidden -->
+
+        <div class="form-group">
+            <label class="form-label">Supplier Name:</label>
+            <input type="text" class="form-control" value="@Model.Supplier?.SupplierName " Unknown"" readonly />
+        </div>
+
+        <div class="form-group">
+            <label class="form-label">Fridge Model:</label>
+            <input type="text" class="form-control" value="@Model.FridgeModel" readonly />
+        </div>
+
+        <div class="form-group">
+            <label class="form-label">Quantity:</label>
+            <input type="text" class="form-control" value="@Model.DNQuantity" readonly />
+        </div>
+
+                <div class="form-group">
+                    <label for="DNStatus">Change Status</label>
+                    <select asp-for="DNStatus" class="form-control">
+                    <option value="Approved" selected="@((Model.DNStatus == "Approved") ? "selected" : null)">Approved</option>
+                    <option value="Pending" selected="@((Model.DNStatus == "Pending") ? "selected" : null)">Pending</option>
+                    <option value="Denied" selected="@((Model.DNStatus == "Denied") ? "selected" : null)">Denied</option>
+                    </select>
+
+
+            <span asp-validation-for="DNStatus" class="text-danger"></span>
+        </div>
+
+        <div class="text-center mt-4">
+            <button type="submit" class="btn btn-primary">Save Changes</button>
+            <a class="cancel btn btn-secondary" href="@Url.Action("Index", "ProcessDeliveryNote")">Cancel</a>
+        </div>
+    </form>
+
+    @section Scripts {
+        @await Html.PartialAsync("_ValidationScriptsPartial")
+    }
+</div>

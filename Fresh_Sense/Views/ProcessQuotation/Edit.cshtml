@@ -1,0 +1,45 @@
+﻿@model Fresh_Sense.Models.ProcessQuotation
+
+@{
+    Layout = "_Purchasing";
+}
+
+<div class="container">
+    <h2 class="text-center mb-4">Process Quotation</h2>
+    <form asp-action="Edit" method="post" class="quotation-edit-form">
+        @Html.AntiForgeryToken()
+
+        <input type="hidden" asp-for="QuotationID" /> <!-- Hidden field for QuotationId -->
+        <input type="hidden" asp-for="SupplierId" /> <!-- Keep the SupplierId hidden -->
+        <input type="hidden" asp-for="QuotationDeadline" /> <!-- Keep the QuotationDeadline hidden -->
+
+        <div class="form-group">
+            <label class="form-label">Supplier Name:</label>
+            <input type="text" class="form-control" value="@Model.Supplier?.SupplierName " Unknown"" readonly />
+        </div>
+
+        <div class="form-group">
+            <label class="form-label">Quotation Deadline:</label>
+            <input type="text" class="form-control" value="@Model.QuotationDeadline" readonly />
+        </div>
+
+        <div class="form-group">
+            <label for="QuotationStatus" class="form-label">Change Status</label>
+            <select asp-for="QuotationStatus" class="form-control">
+                <option value="Approved" selected="@((Model.QuotationStatus == "Approved") ? "selected" : null)">Approved</option>
+                <option value="Pending" selected="@((Model.QuotationStatus == "Pending") ? "selected" : null)">Pending</option>
+                <option value="Denied" selected="@((Model.QuotationStatus == "Denied") ? "selected" : null)">Denied</option>
+            </select>
+            <span asp-validation-for="QuotationStatus" class="text-danger"></span>
+        </div>
+
+        <div class="text-center mt-4">
+            <button type="submit" class="btn btn-primary">Save Changes</button>
+            <a class="cancel btn btn-secondary" href="@Url.Action("Index", "ProcessQuotation")">Cancel</a>
+        </div>
+    </form>
+
+    @section Scripts {
+        @await Html.PartialAsync("_ValidationScriptsPartial")
+    }
+</div>

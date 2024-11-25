@@ -1,0 +1,57 @@
+﻿@model IEnumerable<Fresh_Sense.Models.ScheduleFaultTechVisit>
+
+@{
+    ViewData["Title"] = "Scheduled Visits";
+}
+
+@{
+    Layout = "_FaultTechVisit";
+}
+<a href="@Url.Action("Create", "Fault")" class="back-button steelblue-right">Back</a>
+<br />
+<br />
+<h2>Scheduled Visits</h2>
+
+
+<div>
+    @foreach (var visit in Model)
+    {
+        <div class="card mb-3">
+            <div class="card-header">
+                <h4>Visit on @visit.visitDate at @visit.visitTime</h4>
+            </div>
+            <br />
+            <div class="card-body">
+                <p><strong>Visit Date:</strong> @visit.visitDate</p>
+                <p><strong>Visit Time:</strong> @visit.visitTime</p>
+                <p><strong>Note:</strong> @visit.notes</p>
+            </div>
+        </div>
+    }
+</div>
+
+<style>
+    h2 {
+        background-color: steelblue; /* Steel blue background */
+        color: white; /* White text color */
+        font-weight: bold; /* Bold text */
+        padding: 20px; /* Padding around the text */
+        border-radius: 15px; /* Rounded edges */
+        margin: 20px 0; /* Margin above and below the heading */
+        text-align: center;
+    }
+
+    .steelblue-right {
+        float: right; /* Move the button to the right */
+        background-color: red; /* Set the background color to steelblue */
+        color: white; /* Set the text color to white */
+        padding: 10px 20px; /* Add some padding */
+        text-decoration: none; /* Remove the underline from the link */
+        border-radius: 5px; /* Optional: add rounded corners */
+    }
+
+        .steelblue-right:hover {
+            background-color: #ff9999; /* Slightly darker steelblue on hover */
+        }
+
+</style>

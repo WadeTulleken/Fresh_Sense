@@ -1,0 +1,111 @@
+﻿@model Fresh_Sense.Models.Fault
+
+@{
+    Layout = "_FaultReport"; // Use your main layout if needed
+}
+
+
+
+<div class="container">
+    <h2 class="text-center mb-4">Update Fault Status</h2>
+    <br />
+    <form asp-action="Edit" method="post" class="fault-edit-form">
+        <input type="hidden" asp-for="faultID" />
+
+        <div class="form-group">
+            <label asp-for="fridgeModel" class="form-label">Fridge Model:</label>
+            <input asp-for="fridgeModel" class="form-control" readonly />
+            <span asp-validation-for="fridgeModel" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="faultType" class="form-label">Fault Type:</label>
+            <input asp-for="faultType" class="form-control" readonly />
+            <span asp-validation-for="faultType" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="faultDescription" class="form-label">Fault Description:</label>
+            <input asp-for="faultDescription" class="form-control" readonly />
+            <span asp-validation-for="faultDescription" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Status" class="form-label">Status:</label>
+            <select asp-for="Status" class="form-control">
+                <option value="Pending">Pending</option>
+                <option value="Visit Scheduled">Visit Scheduled</option>
+                <option value="Completed">Completed</option>
+            </select>
+            <span asp-validation-for="Status" class="text-danger"></span>
+        </div>
+
+        <div class="text-center mt-4">
+            <button type="submit" class="btn btn-primary">Save</button>
+            <a class="cancel" href="@Url.Action("Index", "Fault")">Cancel</a>
+        </div>
+    </form>
+</div>
+
+<style>
+    /* Custom styles for the form */
+    .container {
+        max-width: 600px; /* Set a maximum width */
+        margin: 0 auto; /* Center the container */
+        padding: 20px; /* Add some padding */
+        border: 1px solid #e0e0e0; /* Light gray border */
+        border-radius: 8px; /* Rounded corners */
+        background-color: #ffffff; /* White background */
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    }
+
+    h2 {
+        color: #333; /* Dark gray color for the title */
+    }
+
+    .form-label {
+        font-weight: bold; /* Make labels bold */
+        color: #555; /* Slightly lighter gray */
+    }
+
+    .form-control {
+        border: 1px solid #ced4da; /* Light border color */
+        border-radius: 4px; /* Rounded corners for inputs */
+        padding: 10px; /* Padding inside input fields */
+        transition: border-color 0.3s; /* Smooth border transition */
+    }
+
+    .form-control:focus {
+        border-color: #007bff; /* Blue border on focus */
+        box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Light blue shadow */
+    }
+
+    .btn-primary {
+        background-color: #007bff; /* Primary button color */
+        border: none; /* Remove border */
+        padding: 10px 20px; /* Padding for button */
+        font-size: 16px; /* Button font size */
+    }
+
+    .btn-primary:hover {
+        background-color: #0056b3; /* Darker blue on hover */
+        transition: background-color 0.3s; /* Smooth transition */
+    }
+
+    .text-danger {
+        font-size: 0.875rem; /* Smaller font for validation messages */
+    }
+
+    
+    h2 {
+        background-color: steelblue; /* Steel blue background */
+        color: white; /* White text color */
+        font-weight: bold; /* Bold text */
+        padding: 20px; /* Padding around the text */
+        border-radius: 15px; /* Rounded edges */
+        margin: 20px 0; /* Margin above and below the heading */
+        text-align: center;
+    }
+
+
+</style>

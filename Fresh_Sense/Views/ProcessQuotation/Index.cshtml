@@ -1,0 +1,52 @@
+﻿@model IEnumerable<Fresh_Sense.Models.ProcessQuotation>
+
+@{
+    Layout = "_Purchasing";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Suppliers</title>
+    <link rel="stylesheet" href="~/css/ProcessFaults.css">
+</head>
+<body>
+    <a href="@Url.Action("PurchasingTechn", "Home")" class="back-button">Back</a>
+    <div class="container">
+        <main>
+            <h1>Process Quotation</h1>
+            @if (Model.Any())
+            {
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Supplier Name</th>
+                            <th>Deadline</th>
+                            <th>Status</th>
+                            <th>View and Edit</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var quotation in Model)
+                        {
+                            <tr>
+                                <td>@quotation.Supplier.SupplierName</td>
+                                <td>@quotation.QuotationDeadline.ToString("yyyy-MM-dd")</td>
+                                <td>@quotation.QuotationStatus</td>
+                                <td>
+                                    <a href="@Url.Action("Edit", "ProcessQuotation", new { id = quotation.QuotationID })" class="view-button">View and Edit</a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            }
+            else
+            {
+                <p>No quotations found.</p>
+            }
+        </main>
+    </div>
+</body>
+</html>

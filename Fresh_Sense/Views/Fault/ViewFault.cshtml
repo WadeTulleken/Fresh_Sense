@@ -1,0 +1,118 @@
+﻿@model Fresh_Sense.Models.Fault
+
+@{
+    Layout = "_ProcessFaults";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Process Faults</title>
+    <link rel="stylesheet" href="~/css/ViewFault.css">
+</head>
+<body>
+    <div class="header">
+        
+    </div>
+    <a href="@Url.Action("Index", "Fault")" class="button no-print red-button">Back</a>
+
+    <div class="container">
+        <h2>Process Faults</h2>
+        <div class="content">
+            <div class="print-area">
+                <h1 class="print-only">Fault Report</h1>
+                <table>
+                    <tr>
+                        <th>Fault Number:</th>
+                        <td>@Model.faultID</td>
+                    </tr>
+                    <tr>
+                        <th>Fridge Model:</th>
+                        <td>@Model.fridgeModel</td>
+                    </tr>
+                    <tr>
+                        <th>Fault Type:</th>
+                        <td>@Model.faultType</td>
+                    </tr>
+                    <tr>
+                        <th>Fault Description:</th>
+                        <td>@Model.faultDescription</td>
+                    </tr>
+                    <tr>
+                        <th>Status:</th>
+                        <td>@Model.Status</td>
+                    </tr>
+                </table>
+                <br />
+                <br />
+                <div class="print-only signature-section">
+                    <h3>Signatures</h3>
+                    <p>Technician: _______________________</p>
+                    <p>Date: ____________________________</p>
+                    <br />
+                    <p>Customer: ________________________</p>
+                    <p>Date: ____________________________</p>
+                </div>
+                
+            </div>
+            <div>
+                <a href="@Url.Action("Edit", "Fault", new { id = Model.faultID })" class="button no-print">Update Status</a>
+            </div>
+            <div>
+                <a href="@Url.Action("Create", "ScheduleFaultTechVisit")" class="button no-print">Schedule Visit</a>
+                <button class="no-print" onclick="window.print()">Print this page</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+<style>
+    h2 {
+        background-color: steelblue; /* Steel blue background */
+        color: white; /* White text color */
+        font-weight: bold; /* Bold text */
+        padding: 20px; /* Padding around the text */
+        border-radius: 15px; /* Rounded edges */
+        margin: 20px 0; /* Margin above and below the heading */
+        text-align: center;
+    }
+
+    a.back-button {
+        display: inline-block;
+        margin: 20px 0;
+        color: #4CAF50;
+        text-decoration: none;
+        font-size: 14px;
+    }
+       
+    .button {
+        display: inline-block;
+        padding: 10px 20px;
+        margin: 10px 5px;
+        background-color: steelblue;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+        font-size: 14px;
+        transition: background-color 0.3s ease;
+    }
+
+    .red-button {
+        background-color: red; /* Set background color to red */
+        color: white; /* Set text color to white */
+        padding: 10px 20px; /* Add some padding for better appearance */
+        text-decoration: none; /* Remove underline from the link */
+        border-radius: 5px; /* Optional: round the corners */
+        display: inline-block; /* Allows margin to work */
+        float: right;
+    }
+
+    .red-button {
+        margin-left: auto; /* This will push the button to the right if the container is set to flex */
+        margin-right: 0; /* Ensure no right margin */
+    }
+
+    
+</style>

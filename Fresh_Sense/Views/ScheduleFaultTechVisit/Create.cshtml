@@ -1,0 +1,71 @@
+﻿@model Fresh_Sense.Models.ScheduleFaultTechVisit
+
+@{
+    Layout = "_FaultReport";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedule a Visit</title>
+    <link rel="stylesheet" href="~/css/FaultReport.css">
+    <link rel="stylesheet" href="~/css/FaultTechVisit.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+</head>
+<body>
+    <div class="container">
+        <main>
+            <h1>Schedule a Visit</h1>
+            <form method="post" asp-action="Create" onsubmit="showNotification(event)">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-container">
+                    <div class="form-group">
+                        <label asp-for="visitTime" class="control-label">Visit Time:</label>
+                        <select asp-for="visitTime" class="form-control">
+                            <option value="Morning (8AM - 12PM)">Morning (8AM - 12PM)</option>
+                            <option value="Afternoon (12PM - 4PM)">Afternoon (12PM - 4PM)</option>
+                        </select>
+                        <span asp-validation-for="visitTime" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="visitDate">Visit Date: </label>
+                        <input asp-for="visitDate" type="date">
+                        <span asp-validation-for="visitDate" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group" style="grid-column: span 2;">
+                        <label asp-for="notes">Notes for the customer (Optional):</label>
+                        <textarea asp-for="notes" class="form-control" placeholder="Enter your Note"></textarea>
+                        <span asp-validation-for="notes" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="buttons">
+                    <button type="submit" class="submit">Submit</button>
+                    <a class="cancel" href="@Url.Action("Index", "Fault")">Cancel</a>
+                </div>
+            </form>
+        </main>
+    </div>
+
+    <script>
+        function showNotification(event) {
+            event.preventDefault();
+
+            Swal.fire({
+                title: 'Success!',
+                text: 'Visit Scheduled successfully.',
+                icon: 'success',
+                confirmButtonText: 'OK'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    event.target.submit();
+                }
+            });
+        }
+    </script>
+</body>
+</html>

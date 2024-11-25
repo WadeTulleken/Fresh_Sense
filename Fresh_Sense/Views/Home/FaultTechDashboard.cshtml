@@ -1,0 +1,80 @@
+﻿
+
+@{
+    Layout = "_FaultTechDashBoard";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FreshSense Dashboard</title>
+    <link rel="stylesheet" href="~/css/FaultTechDashBoard.css">
+    <style>
+        .header {
+            background-color: #007bff;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            position: relative;
+        }
+
+        
+    </style>
+</head>
+<body>
+    <div class="header">
+        Fault Technician Portal
+        <div class="date-time" id="dateTime"></div>
+    </div>
+    <div class="content">
+        <div class="box">
+            <div class="number" id="faultCount">10</div>
+            <div>Reported Faults</div>
+        </div>
+        <div class="box">
+            <div class="number" id="fridgeCount">4</div>
+            <div>Fridge Requests</div>
+        </div>
+    </div>
+
+    <script>
+        function animateValue(id, start, end, duration) {
+            let obj = document.getElementById(id);
+            let range = end - start;
+            let current = start;
+            let increment = end > start ? 1 : -1;
+            let stepTime = Math.abs(Math.floor(duration / range));
+            let timer = setInterval(function () {
+                current += increment;
+                obj.innerHTML = current;
+                if (current == end) {
+                    clearInterval(timer);
+                }
+            }, stepTime);
+        }
+        window.onload = function () {
+            animateValue("faultCount", 0, 10, 2000);  // Count from 0 to 10 in 2 seconds
+            animateValue("fridgeCount", 0, 4, 2000);  // Count from 0 to 4 in 2 seconds
+        }
+
+
+        // function updateDateTime() {
+        //     const now = new Date();
+        //     const formattedDateTime = now.toLocaleString(); // Adjust format as needed
+        //     document.getElementById("dateTime").innerText = formattedDateTime;
+        // }
+
+        // window.onload = function () {
+        //     animateValue("faultCount", 0, 10, 2000);  // Count from 0 to 10 in 2 seconds
+        //     animateValue("fridgeCount", 0, 4, 2000);  // Count from 0 to 4 in 2 seconds
+        //     updateDateTime(); // Initial call to set date and time
+        //     setInterval(updateDateTime, 1000); // Update every second
+        // }
+    </script>
+
+</body>
+</html>

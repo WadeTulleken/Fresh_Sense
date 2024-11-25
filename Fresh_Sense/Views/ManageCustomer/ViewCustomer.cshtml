@@ -1,0 +1,39 @@
+﻿@model Fresh_Sense.Models.ProfileViewModel
+
+@{
+    Layout = "_View";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maintenance Fault</title>
+    <link rel="stylesheet" href="~/css/FridgeServices.css">
+</head>
+<body>
+
+
+    <div class="fault-table">
+        <h2>View Customer Information</h2>
+        <div class="container">
+            <h3>Customer Name:</h3>
+            <input value="@Model.ApplicationUser.FirstName @Model.ApplicationUser.LastName" readonly="readonly" />
+            <h3>Phone Number:</h3>
+            <input value="@Model.ApplicationUser.ContactNum" readonly="readonly" />
+            <h3>Email Address:</h3>
+            <input value="@Model.ApplicationUser.Email" readonly="readonly" />
+        </div>
+        <div class="container">
+            <h3>Address:</h3>
+            <input value="@Model.Customer.Address" readonly="readonly" />
+            <h3>Business:</h3>
+            <input value="@Model.Customer.BusinessName" readonly="readonly" />
+        </div>
+        
+    </div>
+
+    <button type="button" class="back-btn" onclick="window.location.href='@Url.Action("Index", "ManageCustomer")'">Back</button>
+
+</body>
+</html>
